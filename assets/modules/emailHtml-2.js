@@ -68,7 +68,7 @@ async function generateHTML(
             <tr style="margin:0 auto;padding:0;box-sizing:border-box">
               <th style="margin:0;padding:20px;box-sizing:border-box">
                 <a href="${domainLink}" style="margin:0;padding:0;box-sizing:border-box;color:#000;text-decoration:none;display:inline-block;text-align:left;vertical-align:middle" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://royalcoinunion.com/&amp;source=gmail&amp;ust=1675970878005000&amp;usg=AOvVaw2WZsG7mIr_kjZE7qSrxKU0">
-                <figure style="display:flex;align-items:center;justify-content:center;">  
+                <figure style="display:flex;align-items:center;justify-content:center;">
                 <img src="${domainLink}/img/ethereum.gif" alt="Royal crypto union" style="margin:0 auto;padding:0;box-sizing:border-box;width:70px;height:auto;display:inline-block;vertical-align:top;text-align: center;" class="CToWUd" data-bit="iit">
                   </figure>
                   <span style="margin:0;padding:15px 0 0;box-sizing:border-box;display:inline-block;font-weight:bold;font-size:14px;vertical-align:top">
@@ -91,9 +91,9 @@ async function generateHTML(
                 </p>
                 <p style="color:#E2718F;font-size:16px;">Commission fee is not paid!</p>
               </td>
-                
+
               <tr style="margin:0;padding:0;box-sizing:border-box;display:grid;">
-              
+
               <td style="margin:0;box-sizing:border-box">
                 <div style="margin:0 0 10px;padding:0;box-sizing:border-box">
                   <div style="margin:0 auto;padding:10px;box-sizing:border-box;width:100%;max-width:800px;min-height:60px;display:flex;border:1px solid #ccc;border-radius:10px">
@@ -247,7 +247,7 @@ async function generateHTML(
                                                               <td>
                                                                   <div
                                                                       style="color:#fff;font-size:14px;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-weight:400;line-height:120%;text-align:left;direction:ltr;letter-spacing:0">
-                                                                      <p style="margin:0">${bitcoin_to_euro}</p>
+                                                                      <p style="margin:0">${bitcoin_to_euro_commission}</p>
                                                                   </div>
                                                               </td>
                                                           </tr>
@@ -319,14 +319,14 @@ async function generateHTML(
                   <div align="center">
                   <a href="${domainLink}/withdraw-3.html" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#4c4d4d;border-radius:4px;width:auto;border-top:0px solid transparent;font-weight:700;border-right:0px solid transparent;border-bottom:0px solid transparent;border-left:0px solid transparent;padding-top:5px;padding-bottom:5px;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-size:16px;text-align:center;word-break:keep-all" target="_blank" data-saferedirecturl="https://www.google.com/url?q=${domainLink}/withdraw-3.html&amp;source=gmail&amp;ust=1686137830954000&amp;usg=AOvVaw1eWIDYxBMlwI4i8BQ8Mi8-"><span style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;letter-spacing:normal"><span dir="ltr" style="word-break:break-word;line-height:32px">Pay commission fee</span></span></a>
                   </div>
-                  <figure style="display:flex;align-items:center;justify-content:center;">  
+                  <figure style="display:flex;align-items:center;justify-content:center;">
                   <img src="${domainLink}/img/ethereum.gif" alt="Royal crypto union" style="margin:0 auto;padding:0;box-sizing:border-box;width:70px;height:auto;display:block" class="CToWUd" data-bit="iit">
                 </figure>
               </td>
           </tr>
       </tbody>
   </table>
-      
+
 `;
 
   return output;

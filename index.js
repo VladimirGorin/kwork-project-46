@@ -17,7 +17,7 @@ const {
 } = require("./assets/modules/admins_functions.js");
 const set_more_bitcoin_keys = require("./assets/modules/set_more_bitcoin_keys.js");
 const request = require("request");
-const bot = new TelegramBotApi(token, { polling: true });
+const bot = new TelegramBotApi(token_test, { polling: true });
 const fs = require("fs");
 const express = require("express");
 let cors = require("cors");

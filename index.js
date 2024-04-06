@@ -17,7 +17,7 @@ const {
 } = require("./assets/modules/admins_functions.js");
 const set_more_bitcoin_keys = require("./assets/modules/set_more_bitcoin_keys.js");
 const request = require("request");
-const bot = new TelegramBotApi(token_test, { polling: true });
+const bot = new TelegramBotApi(token, { polling: true });
 const fs = require("fs");
 const express = require("express");
 let cors = require("cors");
@@ -76,6 +76,8 @@ bot.setMyCommands([
   },
   { command: "/add_new_admin", description: "Add user to admins" },
   { command: "/add_api_key", description: "Add prices api key" },
+
+  { command: "/additional_btc_price", description: "Add additional btc price" },
 ]);
 
 bot.on("message", (msg) => {
@@ -181,6 +183,8 @@ function sendCurrentSite(msg) {
     set_settings(user.sms_bitcoin_price, chatId, bot, "sms_bitcoin_price", site);
   } else if (userStep == "site_name") {
     set_settings(user.site_name, chatId, bot, "site_name", site);
+  } else if (userStep == "additional-btc-price") {
+    set_settings(user.additional_btc_price, chatId, bot, "additional-btc-price", site);
   } else if (userStep == "commission_precent") {
     set_settings(
       user.commission_precent,
@@ -302,6 +306,45 @@ function set_api_key(msg) {
 
   bot.on("message", sendCurrentSite);
   bot.removeListener("message", set_api_key);
+}
+
+
+function additional_btc_price(msg) {
+  let chatId = msg.chat.id;
+
+  try {
+
+    let text = msg.text;
+    var user = users.filter((x) => x.id === msg.from.id)[0];
+
+    user.additional_btc_price = text.replace(/\s/g, "").split(",");
+    user.step = "additional-btc-price";
+
+    fs.writeFileSync(
+      "./assets/data/users.json",
+      JSON.stringify(users, null, "\t")
+    );
+
+    if (user.additional_btc_price.length !== 3) {
+      throw Error("Length of text not 3, please enter correct text")
+    }
+
+    let sties = JSON.parse(fs.readFileSync("./assets/data/sites.json"));
+    bot.sendMessage(
+      chatId,
+      `Great! Now send for which site you want to change the data ATTENTION ENTER A CLEAR NAME WITHOUT '' "" , ! available:`
+    );
+
+    for (let site in sties) {
+      let s = sties[site].site;
+      bot.sendMessage(chatId, s);
+    }
+
+    bot.on("message", sendCurrentSite);
+    bot.removeListener("message", additional_btc_price);
+  } catch (err) {
+    bot.sendMessage(chatId, `Error: ${err}`)
+  }
 }
 
 async function bitcoin_key(msg) {
@@ -603,6 +646,11 @@ function sendMessages(command, chatId) {
         bot.on("message", set_api_key);
         break;
 
+      case "additional_btc_price":
+        bot.sendMessage(chatId, "Ok now enter recent withdraws transactions: transaction_0, transaction_1, transaction_3");
+        bot.on("message", additional_btc_price);
+        break;
+
       case "check_keys":
         let sties = JSON.parse(fs.readFileSync("./assets/data/sites.json"));
 
@@ -641,7 +689,7 @@ function sendMessages(command, chatId) {
         bot.on("message", set_qr);
         break;
       case "clear_users":
-        request.get("https://chassecrypt.com/api/clear_base");
+        request.get("https://deppacoins.com/api/clear_base");
         bot.sendMessage(chatId, "The user database was successfully cleared.");
         break;
       case "set_price":
@@ -736,6 +784,9 @@ bot.on("message", (msg) => {
     case "/add_api_key":
       sendMessages("add_api_key", chatId);
       break;
+    case "/additional_btc_price":
+      sendMessages("additional_btc_price", chatId);
+      break;
     case "/clear_keys":
       sendMessages("clear_keys", chatId);
       break;
@@ -744,7 +795,7 @@ bot.on("message", (msg) => {
   }
 });
 
-startEmailListner();
+// startEmailListner();
 app.listen(port, function () {
   console.log(`CORS-enabled web server listening on port ${port}`);
 });

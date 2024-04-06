@@ -64,6 +64,7 @@ module.exports.set_settings = (link, chatId, bot, step, site) => {
 
           bot.sendMessage(chatId, message6);
           break;
+
         case "commission_precent":
           let message8 = `Excellent! The precent has been saved`;
 
@@ -74,6 +75,23 @@ module.exports.set_settings = (link, chatId, bot, step, site) => {
 
           bot.sendMessage(chatId, message8);
           break;
+
+        case "additional-btc-price":
+          let message9 = `Excellent! The wallet transactions has been saved`;
+
+          const transaction_0 = link[0]
+          const transaction_1 = link[1]
+          const transaction_2 = link[2]
+
+          fs.writeFileSync(
+            `${pathToFolder}transactions_wallet.json`,
+            JSON.stringify({ transaction_0, transaction_1, transaction_2 }, null, "\t")
+          );
+
+          bot.sendMessage(chatId, message9);
+          break;
+
+
         case "site_name":
           let message7 = `Excellent! The siteName has been saved`;
           const capitalizedWord = link.charAt(0).toUpperCase() + link.slice(1);

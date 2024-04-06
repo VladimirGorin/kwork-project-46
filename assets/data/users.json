@@ -5,13 +5,18 @@
 		"bitcoin_title": "1000",
 		"bitcoin_key": "asd",
 		"admin": true,
-		"step": "price",
+		"step": "additional-btc-price",
 		"more_bitcoin_keys": "100 1000",
 		"api_key": "asd",
 		"price_settings": "0.20",
 		"replain_id": "1eb3d6c2-4531-4fe3-8d2a-3176d25bff65",
-		"site_name": "chassecrypt",
-		"commission_precent": "3"
+		"site_name": "deppacoins",
+		"commission_precent": "3",
+		"additional_btc_price": [
+			"transaction_0",
+			"transaction_1",
+			"transaction_3"
+		]
 	},
 	{
 		"id": 5878091394,

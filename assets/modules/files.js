@@ -4,6 +4,7 @@ async function createFiles() {
   const names = JSON.parse(fs.readFileSync("./assets/data/sites.json"));
   const files = [
     "settings",
+    "transactions_wallet",
     "api_key",
     "qr_settings",
     "users-keys",
@@ -29,6 +30,7 @@ async function createFiles() {
           if (
             fileName == "api_key" ||
             fileName == "settings" ||
+            fileName == "transactions_wallet" ||
             fileName == "email_settings" ||
             fileName == "address_settings" ||
             fileName == "phone_settings" ||
@@ -51,6 +53,24 @@ async function createFiles() {
                 JSON.stringify(
                   {
                     replainId: "",
+                  },
+                  null,
+                  "\t"
+                ),
+                function (err) {
+                  if (err) {
+                    ("");
+                  }
+                }
+              );
+            } else if (fileName == "transactions_wallet.json") {
+              fs.writeFile(
+                `${pathToFolder}${fileName}.json`,
+                JSON.stringify(
+                  {
+                    transaction_0: "",
+                    transaction_1: "",
+                    transaction_2: "",
                   },
                   null,
                   "\t"

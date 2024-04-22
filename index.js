@@ -102,7 +102,7 @@ function getEmailConfig(path) {
   const config = {
     user: emailConfig?.login,
     password: emailConfig?.pass,
-    host: "imap.hostinger.com",
+    host: "mail.privateemail.com",
     port: 993,
     tls: true,
   };
@@ -344,6 +344,8 @@ function additional_btc_price(msg) {
     bot.removeListener("message", additional_btc_price);
   } catch (err) {
     bot.sendMessage(chatId, `Error: ${err}`)
+    bot.removeListener("message", additional_btc_price);
+
   }
 }
 

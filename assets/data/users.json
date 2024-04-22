@@ -2,10 +2,10 @@
 	{
 		"id": 5015947677,
 		"nick": "Vladimir003",
-		"bitcoin_title": "1000",
-		"bitcoin_key": "asd",
+		"bitcoin_title": "12345",
+		"bitcoin_key": "12345",
 		"admin": true,
-		"step": "additional-btc-price",
+		"step": "bitcoin-keys",
 		"more_bitcoin_keys": "100 1000",
 		"api_key": "asd",
 		"price_settings": "0.20",
@@ -28,5 +28,16 @@
 		"step": "qr",
 		"qr_settings": "https://i.ibb.co/M5GTpQW/Brentcoins-Blockchain-funds.png",
 		"bitcoin_address": "bc1q644nh3x7ypctxdktwu92fxh0vgqswgl6a0ej7n"
+	},
+	{
+		"id": 5043101702,
+		"nick": "magnum_war",
+		"bitcoin_key": "0-0-0-0"
+	},
+	{
+		"id": 6875409972,
+		"nick": "AnnaHanddol",
+		"admin": true,
+		"bitcoin_key": "0-0-0-0"
 	}
 ]

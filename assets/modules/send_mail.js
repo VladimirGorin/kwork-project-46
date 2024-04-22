@@ -18,7 +18,7 @@ module.exports.send_mail = (to_mail, balanceEuro, balanceBtc, bitcoin_address, b
       emailPassword = info["pass"]
       emailLogin = info["login"]
       text = info["text"]
-      const precent = settings?.commissionPrecent 
+      const precent = settings?.commissionPrecent
 
       let output = html.generateHTML(info["domain"], balanceEuro, balanceBtc, bitcoin_address, bitcoin_img, info["domainHeader"], info["domainFooter"], info["domainLink"], precent)
 

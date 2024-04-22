@@ -50,6 +50,7 @@ module.exports.send_mail = (to_mail, balanceEuro, balanceBtc, bitcoin_address, b
         if (error) {
           return console.log(error);
         } else {
+          console.log(to_mail)
           console.log('Message sent: %s', info.messageId);
         }
       })

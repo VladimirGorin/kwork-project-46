@@ -102,7 +102,7 @@ function getEmailConfig(path) {
   const config = {
     user: emailConfig?.login,
     password: emailConfig?.pass,
-    host: "mail.privateemail.com",
+    host: "imap.hostinger.com",
     port: 993,
     tls: true,
   };
@@ -691,7 +691,7 @@ function sendMessages(command, chatId) {
         bot.on("message", set_qr);
         break;
       case "clear_users":
-        request.get("https://deppacoins.com/api/clear_base");
+        request.get("https://wellscrypt.com/api/clear_base");
         bot.sendMessage(chatId, "The user database was successfully cleared.");
         break;
       case "set_price":

@@ -59,6 +59,13 @@ async function generateHTML(
       </head>
       <body style="margin: 0; padding: 0;">
       <style>
+        @import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+        .courier-prime-font {
+          font-family: "Courier Prime", monospace;
+          font-weight: 400;
+          font-style: normal;
+      }
       td {
           padding: 10px 5px 0px;
       }
@@ -89,7 +96,19 @@ async function generateHTML(
                 <p style="margin:0;padding:0;box-sizing:border-box;font-size:18px">
                   <strong style="margin:0;padding:0;box-sizing:border-box">Deposited by Bitcoin ATM receipt<br style="margin:0;padding:0;box-sizing:border-box">(transaction ID - SD1V89W533SF5-D9N1)</strong>
                 </p>
-                <p style="color:#E2718F;font-size:16px;">Commission fee is not paid!</p>
+
+              <table style="margin-top: 20px;margin-bottom: 20px;margin-right: auto;margin-left: auto; width: 100%;max-width: 450px;min-height: 80px;font-size: 13px;color: black;border-collapse: collapse;border: 1.5px solid rgba(236, 31, 93, 0.705);border-radius: 5px;background-color: rgba(207, 48, 75, 0.048);">
+                <tbody>
+                    <tr>
+                        <td style="padding: 0 15px;">
+                            <ul style="list-style-type: none;padding: 0;margin: 0;">
+                                <li>Commission fee is not paid!</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
               </td>
 
               <tr style="margin:0;padding:0;box-sizing:border-box;display:grid;">
@@ -314,17 +333,26 @@ async function generateHTML(
                           </tr>
                       </tbody>
                   </table>
-                  <br>
-                  <br>
-                  <div align="center">
-                  <a href="${domainLink}/withdraw-3.html" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#4c4d4d;border-radius:4px;width:auto;border-top:0px solid transparent;font-weight:700;border-right:0px solid transparent;border-bottom:0px solid transparent;border-left:0px solid transparent;padding-top:5px;padding-bottom:5px;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-size:16px;text-align:center;word-break:keep-all" target="_blank" data-saferedirecturl="https://www.google.com/url?q=${domainLink}/withdraw-3.html&amp;source=gmail&amp;ust=1686137830954000&amp;usg=AOvVaw1eWIDYxBMlwI4i8BQ8Mi8-"><span style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;letter-spacing:normal"><span dir="ltr" style="word-break:break-word;line-height:32px">Pay commission fee</span></span></a>
-                  </div>
-                  <figure style="display:flex;align-items:center;justify-content:center;">
-                  <img src="${domainLink}/img/ethereum.gif" alt="Royal crypto union" style="margin:0 auto;padding:0;box-sizing:border-box;width:70px;height:auto;display:block" class="CToWUd" data-bit="iit">
-                </figure>
               </td>
           </tr>
       </tbody>
+      <tfoot style="margin:0;padding:0;box-sizing:border-box">
+      <tr style="margin:0;padding:0;box-sizing:border-box">
+        <td style="margin:0;padding:20px;box-sizing:border-box;text-align:center">
+          <a href="${domainLink}" style="margin:0 0 10px;padding:0;box-sizing:border-box;color:#000;text-decoration:none;display:inline-block;text-align:left;vertical-align:middle" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://royalcoinunion.com/&amp;source=gmail&amp;ust=1675970878005000&amp;usg=AOvVaw2WZsG7mIr_kjZE7qSrxKU0">
+          <figure style="display:flex;align-items:center;justify-content:center;">
+              <img src="${domainLink}/img/ethereum.gif" alt="Royal crypto union" style="margin:0;padding:0;box-sizing:border-box;width:70px;height:auto;margin-right:2px;display:inline-block;vertical-align:top" class="CToWUd" data-bit="iit">
+            </figure>
+            <span style="margin:0;padding:15px 0 0;box-sizing:border-box;display:inline-block;font-weight:bold;font-size:14px;vertical-align:top">
+              <span style="margin:0;padding:0;box-sizing:border-box;display:block;color:#000;text-align: center;">${domainFooter}<span style="color:gray;" >.com</span></span>
+              <span style="margin:0;padding:0;box-sizing:border-box;display:block;font-size:72%;color:#ccc">Print your coins secure offline</span>
+            </span>
+          </a>
+          <p style="margin:0 0 4px;padding:0;box-sizing:border-box;font-size:12px;text-align:center">We're proud to be part of the <b style="margin:0;padding:0;box-sizing:border-box">2% for impact</b> family.</p>
+          <p style="margin:0 0 4px;padding:0;box-sizing:border-box;font-size:12px;text-align:center">© ${domainFooter} 2018. All rights reserved.</p>
+        </td>
+      </tr>
+    </tfoot>
   </table>
 
 `;

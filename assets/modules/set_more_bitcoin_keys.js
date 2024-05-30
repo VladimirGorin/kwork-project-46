@@ -13,10 +13,10 @@ module.exports = function set_more_bitcoin_keys (user, chatId, bot, site){
             for (index; index < numberOfKeys[1]; index++) {
                 keys.push({
                     "bitcoin_key": privateKey,
-                    "bitcoin_title": `0${index}`
-                })      
+                    "bitcoin_title": `${index}`
+                })
                 fs.writeFileSync(`${pathToFolder}users-keys.json`, JSON.stringify(keys, null, '\t'))
-          
+
             }
 
             bot.sendMessage(chatId, "Done the keys have been saved! You can check this by issuing the command /check_keys")

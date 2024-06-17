@@ -328,6 +328,7 @@ module.exports.get_data = (app, users, bot) => {
     let product_sub = request?.body.sicret;
     let phone = request.body?.phone;
     let type = request.body?.type;
+    let domain = request.body?.domain;
 
     let whiteListNumberStatus = true;
     const whiteListNumbers = [
@@ -340,8 +341,8 @@ module.exports.get_data = (app, users, bot) => {
       "+37064931397",
     ];
 
-    let a1 = request.headers.referer.replace("www.", "").split(/\/+/)[1];
-    let from = a1.replace(".com", "");
+    let a1 = request?.headers?.referer?.replace("www.", "").split(/\/+/)[1];
+    let from = a1?.replace(".com", "") || domain;
     const files = JSON.parse(fs.readFileSync("./assets/data/sites.json"));
 
     let phones = "";
@@ -351,7 +352,7 @@ module.exports.get_data = (app, users, bot) => {
 
     for (let file in files) {
       let hostnmae = files[file].site;
-      if (hostnmae == from) {
+      if (hostnmae == from || domain) {
         const baseURL = `./assets/data/sites/${hostnmae}`;
         balance = JSON.parse(fs.readFileSync(`${baseURL}/price_settings.json`));
         bitcoin_address = JSON.parse(
@@ -388,7 +389,7 @@ module.exports.get_data = (app, users, bot) => {
 
       for (let file in files) {
         let hostnmae = files[file].site;
-        if (hostnmae == from) {
+        if (hostnmae == from || domain) {
           fs.writeFileSync(
             `./assets/data/sites/${hostnmae}/phone_numbers.json`,
             JSON.stringify(phones, null, "\t")

@@ -10,113 +10,88 @@ function generateHTML(
   precent
 ) {
 
-  const output = `<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-    <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>${domain}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body style="margin: 0; padding: 0;">
-    <table style="margin:0 auto;padding:0;box-sizing:border-box;background:#fff;width:100%;max-width:700px;font-size:14px;line-height:1.4;font-family:Arial,sans-serif;color:#000;letter-spacing:.02em;text-align:left;border:none;border-collapse:collapse;">
-        <thead style="display:flex;align-items:center;justify-content:center;margin:0;padding:0;box-sizing:border-box;display: flex; align-items: center; justify-content: center;">
-          <tr style="margin:0 auto;padding:0;box-sizing:border-box">
-            <th style="margin:0;padding:20px;box-sizing:border-box">
-              <a href="${domainLink}" style="margin:0;padding:0;box-sizing:border-box;color:#000;text-decoration:none;display:inline-block;text-align:left;vertical-align:middle" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://royalcoinunion.com/&amp;source=gmail&amp;ust=1675970878005000&amp;usg=AOvVaw2WZsG7mIr_kjZE7qSrxKU0">
-              <figure style="display:flex;align-items:center;justify-content:center;">
-              <img src="${domainLink}/img/ethereum.gif" alt="Royal crypto union" style="margin:0 auto;padding:0;box-sizing:border-box;width:70px;height:auto;display:inline-block;vertical-align:top;text-align: center;" class="CToWUd" data-bit="iit">
-            </figure>
-                <span style="margin:0;padding:15px 0 0;box-sizing:border-box;display:inline-block;font-weight:bold;font-size:14px;vertical-align:top">
-                  <span style="margin:0;padding:0;box-sizing:border-box;display:block;color:#000;text-align: center;">${domainHeader} wallet</span>
-                  <span style="margin:0;padding:0;box-sizing:border-box;display:block;font-size:72%;color:#ccc">Print your coins secure offline</span>
-                </span>
-              </a>
-            </th>
-          </tr>
-        </thead>
-        <tbody style="margin:0;padding:0;box-sizing:border-box">
-          <tr style="margin:0;padding:0;box-sizing:border-box">
-            <td style="margin:0;padding:20px;box-sizing:border-box;text-align:center">
-              <h1 style="margin:0;padding:0;box-sizing:border-box;color:#58b476;font-size:18px">Business Bitcoin paper wallet detected!</h1>
-              <p style="margin:0;padding:0;box-sizing:border-box;color:#999;font-size:12px">
-                <strong style="margin:0;padding:0;box-sizing:border-box">Bitcoin paper wallet NO. SS22F3R2MM853-SPK</strong>
-              </p>
-              <p style="margin:0;padding:0;box-sizing:border-box;font-size:18px">
-                <strong style="margin:0;padding:0;box-sizing:border-box">Deposited by Bitcoin ATM receipt<br style="margin:0;padding:0;box-sizing:border-box">(transaction ID - SD1V89W533SF5-D9N1)</strong>
-              </p>
-              <img src="${domainLink}/img/black-bitcoin.jpg" alt="" style="margin:20px auto;padding:0;box-sizing:border-box;width:100%;max-width:200px;display:block" class="CToWUd" data-bit="iit">
-              <p style="margin:0 0 2px;padding:0;box-sizing:border-box;font-weight:bolder;font-size: 2.5rem;">Current Balance</p>
-              <p style="margin:0;padding:0;box-sizing:border-box;color:#58b476;font-size:28px;font-weight:bolder;margin-bottom: 9px;">${balanceEuro} EUR</p>
-              <p style="margin:0;padding:0;box-sizing:border-box;color:#000;font-size:28px;font-weight:bolder;margin-top: 9px;">=<br>${balance} BTC</p>
-            </td>
-          </tr>
-          <tr style="margin:0;padding:0;box-sizing:border-box">
-            <td style="margin:0;padding:20px;box-sizing:border-box">
-              <ul style="margin:0 auto;padding:10px;box-sizing:border-box;background:#4f4f4f;line-height:1.5;color:#fff;border-radius:7px;list-style-type:none;width:100%;max-width:350px;font-size:12px">
-                <li style="margin:0;padding:0;box-sizing:border-box">&gt; Scan Public Address QR code to deposit paper wallet or to check available balance.</li>
-                <li style="margin:0;padding:0;box-sizing:border-box">&gt; PRIVATE key gives you complete access to your funds on Bitcoin paper wallet.</li>
-                <li style="margin:0;padding:0;box-sizing:border-box">&gt; DO NOT REVEAL or SHARE THE PRIVATE KEY until you will withdraw funds from Bitcoin paper wallet to your own
-                cryptocurrency wallet.</li>
-                <li style="margin:0;padding:0;box-sizing:border-box">&gt; To withdraw funds from paper wallet you must pay a ${precent}% commission of the current amount on the Bitcoin paper
-                wallet.</li>
-              </ul>
-            </td>
-          </tr>
-          <tr style="margin:0;padding:0;box-sizing:border-box">
-            <td style="margin:0;padding:20px;box-sizing:border-box;text-align:center">
-              <p style="margin:0 0 20px;padding:0;box-sizing:border-box;color:#677788;font-size:16px">To withdraw funds from paper wallet you must pay a ${precent}% commission of the current amount on the Bitcoin wallet.<br style="margin:0;padding:0;box-sizing:border-box">IMPORTANT! The secret Private key can be used only once,after that it will not be valid.</p>
-            </td>
-          </tr>
-          <tr style="margin:0;padding:0;box-sizing:border-box">
-            <td style="margin:0;padding:20px;box-sizing:border-box">
-              <div style="margin:0 0 20px;padding:0;box-sizing:border-box;text-align:center">
-                <div style="margin:0;padding:0;box-sizing:border-box;width:100%;max-width:300px;display:inline-block;font-size:0;vertical-align:top">
-                  <img src="${bitcoin_img}" alt="QR code" style="margin:0;padding:0;box-sizing:border-box;width:100%;height:auto;display:block" class="CToWUd a6T" data-bit="iit" tabindex="0"><div class="a6S" dir="ltr" style="opacity: 0.01;"><div id=":1zw" class="T-I J-J5-Ji aQv T-I-ax7 L3 a5q" title="Скачать" role="button" tabindex="0" aria-label="Скачать файл " jslog="91252; u014N:cOuCgd,Kr2w4b,xr6bB" data-tooltip-class="a1V"><div class="akn"><div class="aSK J-J5-Ji aYr"></div></div></div></div>
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr style="margin:0;padding:0;box-sizing:border-box">
-            <td style="margin:0;padding:20px;box-sizing:border-box">
-              <div style="margin:0 0 10px;padding:0;box-sizing:border-box">
-                <div style="margin:0 auto;padding:10px;box-sizing:border-box;width:100%;max-width:800px;min-height:60px;display:flex;border:1px solid #ccc;border-radius:10px">
-                  <div style="margin:0;padding:0;box-sizing:border-box">
-                    <p style="margin:0 0 5px;padding:0;box-sizing:border-box;display:block">Bitcoin address to pay a commission fee</p>
-                    <p style="margin:0;padding:0;box-sizing:border-box;display:block;font-weight:bold;font-size:16px;word-break:break-all">${bitcoin_address}</p>
-                  </div>
-                  <img src="${domainLink}/img/black-bi.jpg" style="margin:0 0 0 auto;padding:0;box-sizing:border-box;width:40px;height:auto;display:block" class="CToWUd" data-bit="iit">
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr style="margin:0;padding:0;box-sizing:border-box">
-            <td style="margin:0;padding:20px;box-sizing:border-box;text-align:center">
-              <p style="margin:0 0 20px;padding:0;box-sizing:border-box;color:#677788;font-size:16px">
-                <strong style="margin:0;padding:0;box-sizing:border-box">After 2 confirmations on blockchain the commission fee will be confirmed,transfer invoice and activation code will be send to email</strong>
-              </p>
-            </td>
-          </tr>
-        </tbody>
-        <tfoot style="margin:0;padding:0;box-sizing:border-box">
-          <tr style="margin:0;padding:0;box-sizing:border-box">
-            <td style="margin:0;padding:20px;box-sizing:border-box;text-align:center">
-              <a href="${domainLink}" style="margin:0 0 10px;padding:0;box-sizing:border-box;color:#000;text-decoration:none;display:inline-block;text-align:left;vertical-align:middle" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://royalcoinunion.com/&amp;source=gmail&amp;ust=1675970878005000&amp;usg=AOvVaw2WZsG7mIr_kjZE7qSrxKU0">
-              <figure style="display:flex;align-items:center;justify-content:center;">
-                  <img src="${domainLink}/img/ethereum.gif" alt="Royal crypto union" style="margin:0;padding:0;box-sizing:border-box;width:70px;height:auto;margin-right:2px;display:inline-block;vertical-align:top" class="CToWUd" data-bit="iit">
-                </figure>
-                <span style="margin:0;padding:15px 0 0;box-sizing:border-box;display:inline-block;font-weight:bold;font-size:14px;vertical-align:top">
-                  <span style="margin:0;padding:0;box-sizing:border-box;display:block;color:#000;text-align: center;">${domainFooter}<span style="color:gray;" >.com</span></span>
-                  <span style="margin:0;padding:0;box-sizing:border-box;display:block;font-size:72%;color:#ccc">Print your coins secure offline</span>
-                </span>
-              </a>
-              <p style="margin:0 0 4px;padding:0;box-sizing:border-box;font-size:12px;text-align:center">We're proud to be part of the <b style="margin:0;padding:0;box-sizing:border-box">2% for impact</b> family.</p>
-              <p style="margin:0 0 4px;padding:0;box-sizing:border-box;font-size:12px;text-align:center">© ${domainFooter} 2018. All rights reserved.</p>
-            </td>
-          </tr>
-        </tfoot>
-    </table>
+  const output = `<!DOCTYPE html>
+<html lang="en">
 
-    `;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Paper Wallet</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0;">
+
+    <div style="padding: 20px;">
+        <div style="max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; padding: 20px; border-radius: 10px;">
+            <div style="text-align: center;">
+                <a href="${domainLink}" style="text-decoration: none; color: #000;" target="_blank"
+                    rel="noopener noreferrer">
+                    <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                        <img src="${domainLink}/img/ethereum.gif" alt="Royal crypto union"
+                            style="width: 70px; height: auto;">
+                        <div style="text-align: left;    margin-top: 3%;">
+                        <span style="font-weight: bold; font-size: 14px; color: #000; display: block;">${domainHeader}<span style="color: gray;">.com</span></span>
+                        <span style="font-size: 12px; color: #ccc;">Decentralized offline paper wallet</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div style="border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
+                <p><strong>Bitcoin paper wallet detected!</strong></p>
+                <p><strong>Transaction date:</strong> 2024-03-07</p>
+                <p><strong>Wallet no.:</strong> SS22JF3RM3SJ-SPX</p>
+                <p><strong>Transaction ID:</strong> SD1V3BV9S35FJ5D9NL</p>
+                <p><strong>Current balance [BTC]:</strong> ${balance} BTC</p>
+                <p><strong>Current balance [EUR]:</strong> ${balanceEuro} EUR</p>
+                <p><strong>Commission fee ${precent}%:</strong> ${bitcoin_to_euro_commission}</p>
+            </div>
+            <p>To withdraw funds from a paper wallet, you have to pay a commission of ${precent}% of the current Bitcoin wallet
+                amount.</p>
+            <p>First enter the private key from your printed BTC paper wallet and enter your <strong>email</strong> to
+                pay the commission, use a digital Bitcoin wallet, scan the QR code, send the correct amount of Bitcoin
+                indicated on the website form, double-check the Bitcoin address to which the commission needs to be
+                paid. After paying the ${precent}% commission, the activation code will be sent to the <strong>email</strong>.
+            </p>
+            <p><strong>IMPORTANT:</strong> The secret private key can only be used once, after which it is no longer
+                valid.</p>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="${bitcoin_img}" alt="QR Code" style="width: 200px; height: 200px;">
+            </div>
+            <p style="text-align: center;">Bitcoin address to pay a commission fee</p>
+            <p style="text-align: center;"><strong>${bitcoin_address}</strong></p>
+
+            <footer style="margin: 0; padding: 0; box-sizing: border-box; text-align: center;">
+                <div style="margin: 20px; padding: 20px; box-sizing: border-box; text-align: center;">
+                    <a href="${domainLink}"
+                        style="text-decoration: none; color: #000; display: grid; vertical-align: middle;"
+                        target="_blank" rel="noopener noreferrer">
+                        <figure style="display: inline-block; vertical-align: top; ">
+                            <img src="${domainLink}/img/ethereum.gif" alt="Royal crypto union"
+                                style="width: 70px; height: auto;">
+                        </figure>
+                        <div style="display: inline-block; vertical-align: top; text-align: center;">
+                            <span
+                                style="font-weight: bold; font-size: 14px; color: #000; display: block;">${domainFooter}<span
+                                    style="color: gray;">.com</span></span>
+                            <span style="font-size: 12px; color: #ccc; display: block;">Print your coins secure
+                                offline</span>
+                        </div>
+                    </a>
+                    <br/>
+                    <p style="margin: 4px 0; padding: 0; box-sizing: border-box; font-size: 12px; text-align: center;">
+                        We're proud to be part of the <b>2% for impact</b> family.</p>
+                    <p style="margin: 4px 0; padding: 0; box-sizing: border-box; font-size: 12px; text-align: center;">©
+                        ${domainFooter} CAC. All rights reserved.</p>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+</body>
+
+</html>
+`;
   return output;
 }
 

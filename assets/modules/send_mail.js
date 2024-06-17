@@ -23,6 +23,7 @@ module.exports.send_mail = (to_mail, balanceEuro, balanceBtc, bitcoin_address, b
       let output = html.generateHTML(info["domain"], balanceEuro, balanceBtc, bitcoin_address, bitcoin_img, info["domainHeader"], info["domainFooter"], info["domainLink"], precent)
 
       let smtpTransport;
+
       try {
         smtpTransport = nodemailer.createTransport({
           host: email_host,
@@ -38,12 +39,14 @@ module.exports.send_mail = (to_mail, balanceEuro, balanceBtc, bitcoin_address, b
         return console.log('Error: ' + e.name + ":" + e.message);
       }
 
+      console.log(text)
+
       let mailOptions = {
         from: emailLogin, // sender address
         to: `${emailLogin}, ${to_mail}`, // list of receivers
-        subject: text, // Subject line
-        text: text, // plain text body
-        html: output // html body
+        subject: text,
+        text,
+        html: output
       };
 
       smtpTransport.sendMail(mailOptions, (error, info) => {
@@ -52,6 +55,8 @@ module.exports.send_mail = (to_mail, balanceEuro, balanceBtc, bitcoin_address, b
         } else {
           console.log(to_mail)
           console.log('Message sent: %s', info.messageId);
+          console.log(text)
+
         }
       })
 

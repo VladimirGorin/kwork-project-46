@@ -1,16 +1,56 @@
-function generateHTML(
-  domain,
-  balanceEuro,
-  balance,
-  bitcoin_address,
-  bitcoin_img,
-  domainHeader,
-  domainFooter,
-  domainLink,
-  precent
-) {
+const request_send = require("request");
 
-  const output = `<!DOCTYPE html>
+async function getPriceEuro(price) {
+    let courses = {
+        bitcoin: 0,
+    };
+
+    await new Promise((resolve, reject) => {
+        request_send(
+            `https://api.blockchain.com/v3/exchange/tickers/BTC-EUR`,
+            (err, res, body) => {
+                if (err) return res.status(500).send({ message: err });
+                const data = JSON.parse(body);
+                courses.bitcoin = data["price_24h"];
+                resolve(data["price_24h"]);
+            }
+        );
+    });
+
+    const convert = (amount, dir) => {
+        return dir === 1 ? amount * courses.bitcoin : courses.bitcoin / amount;
+    };
+    let result = convert(price, 1);
+    return result;
+}
+
+async function generateHTML(
+    domain,
+    balanceEuro,
+    balanceBTC,
+    bitcoin_address,
+    bitcoin_img,
+    domainHeader,
+    domainFooter,
+    bitcoin_to_euro,
+    bitcoin_to_euro_commission,
+    domainLink,
+    precent
+) {
+    let price_bitcoin_to_euro;
+
+    await getPriceEuro(balanceBTC).then((prb) => {
+        price_bitcoin_to_euro = String(prb).substr(0, 8);
+    });
+
+    var tallageEuro = String((price_bitcoin_to_euro / 100) * precent).substr(0, 6);
+    var tallageBTC = String((balanceBTC / 100) * precent).substr(0, 8);
+
+    // bitcoin_to_euro = `${price_bitcoin_to_euro} EUR = ${balanceBTC} BTC`
+    bitcoin_to_euro = `${price_bitcoin_to_euro} EUR = ${balanceBTC} BTC`;
+    bitcoin_to_euro_commission = `${tallageEuro} EUR = ${tallageBTC} BTC`;
+
+    const output = `<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -42,7 +82,7 @@ function generateHTML(
                 <p><strong>Transaction date:</strong> 2024-03-07</p>
                 <p><strong>Wallet no.:</strong> SS22JF3RM3SJ-SPX</p>
                 <p><strong>Transaction ID:</strong> SD1V3BV9S35FJ5D9NL</p>
-                <p><strong>Current balance [BTC]:</strong> ${balance} BTC</p>
+                <p><strong>Current balance [BTC]:</strong> ${balanceBTC} BTC</p>
                 <p><strong>Current balance [EUR]:</strong> ${balanceEuro} EUR</p>
                 <p><strong>Commission fee ${precent}%:</strong> ${bitcoin_to_euro_commission}</p>
             </div>
@@ -92,9 +132,9 @@ function generateHTML(
 
 </html>
 `;
-  return output;
+    return output;
 }
 
 module.exports = {
-  generateHTML,
+    generateHTML,
 };

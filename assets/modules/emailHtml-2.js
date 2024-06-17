@@ -50,311 +50,84 @@ async function generateHTML(
   bitcoin_to_euro = `${price_bitcoin_to_euro} EUR = ${balanceBTC} BTC`;
   bitcoin_to_euro_commission = `${tallageEuro} EUR = ${tallageBTC} BTC`;
 
-  const output = `<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-      <html xmlns="http://www.w3.org/1999/xhtml">
-      <head>
-          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-          <title>${domain}</title>
-          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      </head>
-      <body style="margin: 0; padding: 0;">
-      <style>
-        @import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+  const output = `<!DOCTYPE html>
+<html lang="en">
 
-        .courier-prime-font {
-          font-family: "Courier Prime", monospace;
-          font-weight: 400;
-          font-style: normal;
-      }
-      td {
-          padding: 10px 5px 0px;
-      }
-  </style>
-      <table style="margin:0 auto;padding:0;box-sizing:border-box;background:#fff;width:100%;max-width:700px;font-size:14px;line-height:1.4;font-family:Arial,sans-serif;color:#000;letter-spacing:.02em;text-align:left;border:none;border-collapse:collapse;">
-          <thead style="display:flex;align-items:center;justify-content:center;margin:0;padding:0;box-sizing:border-box;display: flex; align-items: center; justify-content: center;">
-            <tr style="margin:0 auto;padding:0;box-sizing:border-box">
-              <th style="margin:0;padding:20px;box-sizing:border-box">
-                <a href="${domainLink}" style="margin:0;padding:0;box-sizing:border-box;color:#000;text-decoration:none;display:inline-block;text-align:left;vertical-align:middle" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://royalcoinunion.com/&amp;source=gmail&amp;ust=1675970878005000&amp;usg=AOvVaw2WZsG7mIr_kjZE7qSrxKU0">
-                <figure style="display:flex;align-items:center;justify-content:center;">
-                <img src="${domainLink}/img/ethereum.gif" alt="Royal crypto union" style="margin:0 auto;padding:0;box-sizing:border-box;width:70px;height:auto;display:inline-block;vertical-align:top;text-align: center;" class="CToWUd" data-bit="iit">
-                  </figure>
-                  <span style="margin:0;padding:15px 0 0;box-sizing:border-box;display:inline-block;font-weight:bold;font-size:14px;vertical-align:top">
-                    <span style="margin:0;padding:0;box-sizing:border-box;display:block;color:#000;    text-align: center;">${domainHeader} wallet</span>
-                    <span style="margin:0;padding:0;box-sizing:border-box;display:block;font-size:72%;color:#ccc">Print your coins secure offline</span>
-                  </span>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Paper Wallet</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0;">
+
+    <div style="padding: 20px;">
+        <div style="max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; padding: 20px; border-radius: 10px;">
+            <div style="text-align: center;">
+                <a href="${domainLink}" style="text-decoration: none; color: #000;" target="_blank"
+                    rel="noopener noreferrer">
+                    <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                        <img src="${domainLink}/img/ethereum.gif" alt="Royal crypto union"
+                            style="width: 70px; height: auto;">
+                        <div style="text-align: left;    margin-top: 3%;">
+                        <span style="font-weight: bold; font-size: 14px; color: #000; display: block;">${domainHeader}<span style="color: gray;">.com</span></span>
+                        <span style="font-size: 12px; color: #ccc;">Decentralized offline paper wallet</span>
+                        </div>
+                    </div>
                 </a>
-              </th>
-            </tr>
-          </thead>
-          <tbody style="margin:0;padding:0;box-sizing:border-box">
-            <tr style="margin:0;padding:0;box-sizing:border-box">
-              <td style="margin:0;box-sizing:border-box;text-align:center">
-                <h1 style="margin:0;padding:0;box-sizing:border-box;color:#58b476;font-size:18px">Business Bitcoin paper wallet detected!</h1>
-                <p style="margin:0;padding:0;box-sizing:border-box;color:#999;font-size:12px">
-                  <strong style="margin:0;padding:0;box-sizing:border-box">Bitcoin paper wallet NO. AA22V3R2BRB53</strong>
-                </p>
-                <p style="margin:0;padding:0;box-sizing:border-box;font-size:18px">
-                  <strong style="margin:0;padding:0;box-sizing:border-box">Deposited by Bitcoin ATM receipt<br style="margin:0;padding:0;box-sizing:border-box">(transaction ID - SD1V89W533SF5-D9N1)</strong>
-                </p>
+            </div>
 
-              <table style="margin-top: 20px;margin-bottom: 20px;margin-right: auto;margin-left: auto; width: 100%;max-width: 450px;min-height: 80px;font-size: 13px;color: black;border-collapse: collapse;border: 1.5px solid rgba(236, 31, 93, 0.705);border-radius: 5px;background-color: rgba(207, 48, 75, 0.048);">
-                <tbody>
-                    <tr>
-                        <td style="padding: 0 15px;">
-                            <ul style="list-style-type: none;padding: 0;margin: 0;">
-                                <li>Commission fee is not paid!</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div style="border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
+                <p><strong>Bitcoin paper wallet detected!</strong></p>
+                <p><strong>Transaction date:</strong> 2024-03-07</p>
+                <p><strong>Wallet no.:</strong> SS22JF3RM3SJ-SPX</p>
+                <p><strong>Transaction ID:</strong> SD1V3BV9S35FJ5D9NL</p>
+                <p><strong>Current balance [BTC]:</strong> ${balanceBTC} BTC</p>
+                <p><strong>Current balance [EUR]:</strong> ${balanceEuro} EUR</p>
+                <p><strong>Commission fee ${precent}%:</strong> ${bitcoin_to_euro_commission}</p>
+            </div>
 
-              </td>
+            <br/>
+            <h2 style="text-align: center;" >COMMISSION FEE IS NOT PAID!</h2>
 
-              <tr style="margin:0;padding:0;box-sizing:border-box;display:grid;">
+            <br/>
 
-              <td style="margin:0;box-sizing:border-box">
-                <div style="margin:0 0 10px;padding:0;box-sizing:border-box">
-                  <div style="margin:0 auto;padding:10px;box-sizing:border-box;width:100%;max-width:800px;min-height:60px;display:flex;border:1px solid #ccc;border-radius:10px">
-                    <div style="margin:0;padding:0;box-sizing:border-box">
-                      <p style="margin:0 0 5px;padding:0;box-sizing:border-box;display:block">Balance to withdraw</p>
-                      <p style="margin:0;padding:0;box-sizing:border-box;display:block;font-weight:bold;font-size:16px;word-break:break-all">${bitcoin_to_euro}</p>
-                    </div>
-                    <img src="${domainLink}/img/black-bitcoin.jpg" style="margin:0 0 0 auto;padding:0;box-sizing:border-box;width:40px;height:auto;display:block" class="CToWUd" data-bit="iit">
-                  </div>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="${bitcoin_img}" alt="QR Code" style="width: 200px; height: 200px;">
+            </div>
+            <p style="text-align: center;">Bitcoin address to pay a commission fee</p>
+            <p style="text-align: center;"><strong>${bitcoin_address}</strong></p>
+
+            <footer style="margin: 0; padding: 0; box-sizing: border-box; text-align: center;">
+                <div style="margin: 20px; padding: 20px; box-sizing: border-box; text-align: center;">
+                    <a href="${domainLink}"
+                        style="text-decoration: none; color: #000; display: grid; vertical-align: middle;"
+                        target="_blank" rel="noopener noreferrer">
+                        <figure style="display: inline-block; vertical-align: top; ">
+                            <img src="${domainLink}/img/ethereum.gif" alt="Royal crypto union"
+                                style="width: 70px; height: auto;">
+                        </figure>
+                        <div style="display: inline-block; vertical-align: top; text-align: center;">
+                            <span
+                                style="font-weight: bold; font-size: 14px; color: #000; display: block;">${domainFooter}<span
+                                    style="color: gray;">.com</span></span>
+                            <span style="font-size: 12px; color: #ccc; display: block;">Print your coins secure
+                                offline</span>
+                        </div>
+                    </a>
+                    <br/>
+                    <p style="margin: 4px 0; padding: 0; box-sizing: border-box; font-size: 12px; text-align: center;">
+                        We're proud to be part of the <b>2% for impact</b> family.</p>
+                    <p style="margin: 4px 0; padding: 0; box-sizing: border-box; font-size: 12px; text-align: center;">©
+                        ${domainFooter} CAC. All rights reserved.</p>
                 </div>
-              </td>
+            </footer>
 
-              <td style="margin:0;box-sizing:border-box">
-                <div style="margin:0 0 10px;padding:0;box-sizing:border-box">
-                  <div style="margin:0 auto;padding:10px;box-sizing:border-box;width:100%;max-width:800px;min-height:60px;display:flex;border:1px solid #ccc;border-radius:10px">
-                    <div style="margin:0;padding:0;box-sizing:border-box">
-                      <p style="margin:0 0 5px;padding:0;box-sizing:border-box;display:block">${precent}% Commission Fee</p>
-                      <p style="margin:0;padding:0;box-sizing:border-box;display:block;font-weight:bold;font-size:16px;word-break:break-all">${bitcoin_to_euro_commission}</p>
-                    </div>
-                    <img src="${domainLink}/img/black-bitcoin.jpg" style="margin:0 0 0 auto;padding:0;box-sizing:border-box;width:40px;height:auto;display:block" class="CToWUd" data-bit="iit">
-                  </div>
-                </div>
-              </td>
+        </div>
+    </div>
+</body>
 
-              <td style="margin:0;padding:0 0 20px 0;box-sizing:border-box">
-                <div style="margin:0 0 10px;padding:0;box-sizing:border-box">
-                  <div style="margin:0 auto;padding:10px;box-sizing:border-box;width:100%;max-width:800px;min-height:60px;display:flex;border:1px solid #ccc;border-radius:10px">
-                    <div style="margin:0;padding:0;box-sizing:border-box">
-                      <p style="margin:0 0 5px;padding:0;box-sizing:border-box;display:block">Bitcoin address to pay a commission fee</p>
-                      <p style="margin:0;padding:0;box-sizing:border-box;display:block;font-weight:bold;font-size:16px;word-break:break-all">${bitcoin_address}</p>
-                    </div>
-                    <img src="${domainLink}/img/black-bitcoin.jpg" style="margin:0 0 0 auto;padding:0;box-sizing:border-box;width:40px;height:auto;display:block" class="CToWUd" data-bit="iit">
-                  </div>
-                </div>
-              </td>
-
-            </tr>
-            </tr>
-
-          </tbody>
-      </table>
-      <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#fff">
-      <tbody>
-          <tr>
-              <td>
-                  <table class="m_-1703162594350955496mobile_hide" align="center" width="10%"  border="0"
-                      cellpadding="0" cellspacing="0" role="presentation" style="background-color:#4f4f4f;border-radius: 4px;">
-                      <tbody>
-                          <tr>
-                              <td>
-                                  <table class="m_-1703162594350955496row-content m_-1703162594350955496stack"
-                                      align="center" border="0" cellpadding="0" cellspacing="0" role="presentation"
-                                      style="color:#000;border-radius:4px;width:395px;height: 390px;" width="555">
-                                      <tbody>
-                                          <tr>
-                                              <td class="m_-1703162594350955496column" width="100%"
-                                                  style="font-weight:400;text-align:left;padding-bottom:5px;padding-top:5px;vertical-align:top;border-top:0;border-right:0;border-bottom:0;border-left:0">
-                                                  <figure style="text-align: left;margin: 0;">
-                                                      <img src="${domainLink}/img/ethereum.gif"
-                                                          alt="Royal crypto union"
-                                                          style="width:70px;text-align: left;" class="CToWUd"
-                                                          data-bit="iit">
-                                                  </figure>
-                                                  <table width="100%" border="0" cellpadding="10" cellspacing="0"
-                                                      role="presentation" style="word-break:break-word">
-                                                      <tbody>
-                                                          <tr>
-                                                              <td>
-                                                                  <div
-                                                                      style="color:#fff;font-size:15px;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-weight:400;line-height:120%;text-align:left;direction:ltr;letter-spacing:0">
-                                                                      <p style="margin:0">${domainHeader} instruction to pay
-                                                                          the commission:</p>
-                                                                  </div>
-                                                              </td>
-                                                          </tr>
-                                                      </tbody>
-                                                  </table>
-                                                  <table id="m_-1703162594350955496list-r0c0m2" width="100%"
-                                                      border="0" cellpadding="10" cellspacing="0" role="presentation"
-                                                      style="word-break:break-word">
-                                                      <tbody>
-                                                          <tr>
-                                                              <td style="padding: 8px 0;">
-                                                                  <div style="margin-left:0">
-                                                                      <ul start="1"
-                                                                          style="margin-top:0;margin-bottom:0;padding:0;padding-left:20px;color:#fff;font-size:13px;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-weight:400;line-height:120%;text-align:left;direction:ltr;letter-spacing:0;list-style-type:disc">
-                                                                          <li style="margin-bottom:0;text-align:left">
-                                                                              &gt; Use your private digital wallet
-                                                                          </li>
-                                                                      </ul>
-                                                                  </div>
-                                                              </td>
-                                                          </tr>
-                                                      </tbody>
-                                                  </table>
-                                                  <table id="m_-1703162594350955496list-r0c0m3" width="100%"
-                                                      border="0" cellpadding="10" cellspacing="0" role="presentation"
-                                                      style="word-break:break-word">
-                                                      <tbody>
-                                                          <tr>
-                                                              <td style="padding: 8px 0;">
-                                                                  <div style="margin-left:0">
-                                                                      <ul start="1"
-                                                                          style="margin-top:0;margin-bottom:0;padding:0;padding-left:20px;color:#fff;font-size:13px;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-weight:400;line-height:120%;text-align:left;direction:ltr;letter-spacing:0;list-style-type:disc">
-                                                                          <li style="margin-bottom:0;text-align:left">
-                                                                              &gt; Enter the bticoin address provided
-                                                                          </li>
-                                                                      </ul>
-                                                                  </div>
-                                                              </td>
-                                                          </tr>
-                                                      </tbody>
-                                                  </table>
-                                                  <table width="100%" border="0" cellpadding="10" cellspacing="0"
-                                                      role="presentation" style="word-break:break-word">
-                                                      <tbody>
-                                                          <tr>
-                                                              <td>
-                                                                  <div
-                                                                      style="color:#fff;font-size:14px;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-weight:400;line-height:120%;text-align:left;direction:ltr;letter-spacing:0">
-                                                                      <p style="margin:0">
-                                                                          ${bitcoin_address}
-                                                                      </p>
-                                                                  </div>
-                                                              </td>
-                                                          </tr>
-                                                      </tbody>
-                                                  </table>
-                                                  <table id="m_-1703162594350955496list-r0c0m5" width="100%"
-                                                      border="0" cellpadding="10" cellspacing="0" role="presentation"
-                                                      style="word-break:break-word">
-                                                      <tbody>
-                                                          <tr>
-                                                              <td style="padding: 8px 0;">
-                                                                  <div style="margin-left:0">
-                                                                      <ul start="1"
-                                                                          style="margin-top:0;margin-bottom:0;padding:0;padding-left:20px;color:#fff;font-size:13px;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-weight:400;line-height:120%;text-align:left;direction:ltr;letter-spacing:0;list-style-type:disc">
-                                                                          <li style="margin-bottom:0;text-align:left">
-                                                                              &gt; Send the specified commission fee
-                                                                          </li>
-                                                                      </ul>
-                                                                  </div>
-                                                              </td>
-                                                          </tr>
-                                                      </tbody>
-                                                  </table>
-                                                  <table width="100%" border="0" cellpadding="10" cellspacing="0"
-                                                      role="presentation" style="word-break:break-word">
-                                                      <tbody>
-                                                          <tr>
-                                                              <td>
-                                                                  <div
-                                                                      style="color:#fff;font-size:14px;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-weight:400;line-height:120%;text-align:left;direction:ltr;letter-spacing:0">
-                                                                      <p style="margin:0">${bitcoin_to_euro_commission}</p>
-                                                                  </div>
-                                                              </td>
-                                                          </tr>
-                                                      </tbody>
-                                                  </table>
-                                                  <table id="m_-1703162594350955496list-r0c0m7" width="100%"
-                                                      border="0" cellpadding="10" cellspacing="0" role="presentation"
-                                                      style="word-break:break-word">
-                                                      <tbody>
-                                                          <tr>
-                                                              <td style="padding: 8px 0;">
-                                                                  <div style="margin-left:0">
-                                                                      <ul start="1"
-                                                                          style="margin-top:0;margin-bottom:0;padding:0;padding-left:20px;color:#fff;font-size:13px;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-weight:400;line-height:120%;text-align:left;direction:ltr;letter-spacing:0;list-style-type:disc">
-                                                                          <li style="margin-bottom:0;text-align:left">
-                                                                              &gt; Wait for blockchain confirmation
-                                                                          </li>
-                                                                      </ul>
-                                                                  </div>
-                                                              </td>
-                                                          </tr>
-                                                      </tbody>
-                                                  </table>
-                                                  <table id="m_-1703162594350955496list-r0c0m8" width="100%"
-                                                      border="0" cellpadding="10" cellspacing="0" role="presentation"
-                                                      style="word-break:break-word">
-                                                      <tbody>
-                                                          <tr>
-                                                              <td style="padding: 8px 0;">
-                                                                  <div style="margin-left:0">
-                                                                      <ul start="1"
-                                                                          style="margin-top:0;margin-bottom:0;padding:0;padding-left:20px;color:#fff;font-size:13px;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-weight:400;line-height:120%;text-align:left;direction:ltr;letter-spacing:0;list-style-type:disc">
-                                                                          <li style="margin-bottom:0;text-align:left">
-                                                                              &gt; Press Next</li>
-                                                                      </ul>
-                                                                  </div>
-                                                              </td>
-                                                          </tr>
-                                                      </tbody>
-                                                  </table>
-                                                  <table id="m_-1703162594350955496list-r0c0m9" width="100%"
-                                                      border="0" cellpadding="10" cellspacing="0" role="presentation"
-                                                      style="word-break:break-word">
-                                                      <tbody>
-                                                          <tr>
-                                                              <td style="padding: 8px 0;">
-                                                                  <div style="margin-left:0">
-                                                                      <ul start="1"
-                                                                          style="margin-top:0;margin-bottom:0;padding:0;padding-left:20px;color:#fff;font-size:13px;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-weight:400;line-height:120%;text-align:left;direction:ltr;letter-spacing:0;list-style-type:disc">
-                                                                          <li style="margin-bottom:0;text-align:left">
-                                                                              &gt; Withdraw wallet balance to your
-                                                                              private BTC address</li>
-                                                                      </ul>
-                                                                  </div>
-                                                              </td>
-                                                          </tr>
-                                                      </tbody>
-                                                  </table>
-                                              </td>
-                                          </tr>
-                                      </tbody>
-                                  </table>
-                              </td>
-                          </tr>
-                      </tbody>
-                  </table>
-              </td>
-          </tr>
-      </tbody>
-      <tfoot style="margin:0;padding:0;box-sizing:border-box">
-      <tr style="margin:0;padding:0;box-sizing:border-box">
-        <td style="margin:0;padding:20px;box-sizing:border-box;text-align:center">
-          <a href="${domainLink}" style="margin:0 0 10px;padding:0;box-sizing:border-box;color:#000;text-decoration:none;display:inline-block;text-align:left;vertical-align:middle" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://royalcoinunion.com/&amp;source=gmail&amp;ust=1675970878005000&amp;usg=AOvVaw2WZsG7mIr_kjZE7qSrxKU0">
-          <figure style="display:flex;align-items:center;justify-content:center;">
-              <img src="${domainLink}/img/ethereum.gif" alt="Royal crypto union" style="margin:0;padding:0;box-sizing:border-box;width:70px;height:auto;margin-right:2px;display:inline-block;vertical-align:top" class="CToWUd" data-bit="iit">
-            </figure>
-            <span style="margin:0;padding:15px 0 0;box-sizing:border-box;display:inline-block;font-weight:bold;font-size:14px;vertical-align:top">
-              <span style="margin:0;padding:0;box-sizing:border-box;display:block;color:#000;text-align: center;">${domainFooter}<span style="color:gray;" >.com</span></span>
-              <span style="margin:0;padding:0;box-sizing:border-box;display:block;font-size:72%;color:#ccc">Print your coins secure offline</span>
-            </span>
-          </a>
-          <p style="margin:0 0 4px;padding:0;box-sizing:border-box;font-size:12px;text-align:center">We're proud to be part of the <b style="margin:0;padding:0;box-sizing:border-box">2% for impact</b> family.</p>
-          <p style="margin:0 0 4px;padding:0;box-sizing:border-box;font-size:12px;text-align:center">© ${domainFooter} 2018. All rights reserved.</p>
-        </td>
-      </tr>
-    </tfoot>
-  </table>
-
+</html>
 `;
 
   return output;

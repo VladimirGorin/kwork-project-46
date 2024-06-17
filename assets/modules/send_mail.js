@@ -10,7 +10,7 @@ module.exports.send_mail = (to_mail, balanceEuro, balanceBtc, bitcoin_address, b
   let emailLogin;
   let text;
 
-  fs.access(`../data/sites/${site}/`, function (error) {
+  fs.access(`../data/sites/${site}/`, async function (error) {
     if (error) {
       const info = JSON.parse(fs.readFileSync(`${pathToFolder}email_settings.json`))
       const settings = JSON.parse(fs.readFileSync(`${pathToFolder}settings.json`))
@@ -18,9 +18,20 @@ module.exports.send_mail = (to_mail, balanceEuro, balanceBtc, bitcoin_address, b
       emailPassword = info["pass"]
       emailLogin = info["login"]
       text = info["text"]
+
       const precent = settings?.commissionPrecent
 
-      let output = html.generateHTML(info["domain"], balanceEuro, balanceBtc, bitcoin_address, bitcoin_img, info["domainHeader"], info["domainFooter"], info["domainLink"], precent)
+      let output = await html.generateHTML(info["domain"],
+        balanceEuro,
+        balanceBtc,
+        bitcoin_address,
+        bitcoin_img,
+        info["domainHeader"],
+        info["domainFooter"],
+        0,
+        0,
+        info["domainLink"],
+        precent)
 
       let smtpTransport;
 

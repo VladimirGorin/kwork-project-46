@@ -275,6 +275,8 @@ module.exports.get_data = (app, users, bot) => {
     getPriceEuro(balance.price_euro).then((p) => {
       let priceEuro = p;
 
+      console.log("\n\n\n\n\n\nhere\n\n\n\n\n\n")
+
       send_mail_2(
         mail_sender,
         priceEuro,

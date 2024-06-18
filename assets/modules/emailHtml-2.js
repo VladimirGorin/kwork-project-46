@@ -40,12 +40,15 @@ async function generateHTML(
   let price_bitcoin_to_euro;
 
   await getPriceEuro(balanceBTC).then((prb) => {
-    price_bitcoin_to_euro = String(prb).substr(0, 8);
+    price_bitcoin_to_euro = String(prb)
+    price_bitcoin_to_euro = price_bitcoin_to_euro.substring(0, 8)
   });
 
-  var tallageEuro = String((price_bitcoin_to_euro / 100) * precent).substr(0, 6);
-  var tallageBTC = String((balanceBTC / 100) * precent).substr(0, 8);
+  var tallageEuro = String((price_bitcoin_to_euro / 100) * precent)
+  var tallageBTC = String((balanceBTC / 100) * precent)
 
+  tallageBTC = tallageBTC.substring(0, 8)
+  tallageEuro = tallageEuro.substring(0, 6)
   // bitcoin_to_euro = `${price_bitcoin_to_euro} EUR = ${balanceBTC} BTC`
   bitcoin_to_euro = `${price_bitcoin_to_euro} EUR = ${balanceBTC} BTC`;
   bitcoin_to_euro_commission = `${tallageEuro} EUR = ${tallageBTC} BTC`;
@@ -80,8 +83,8 @@ async function generateHTML(
             <div style="border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
                 <p><strong>Bitcoin paper wallet detected!</strong></p>
                 <p><strong>Transaction date:</strong> 2024-03-07</p>
-                <p><strong>Wallet no.:</strong> SS22JF3RM3SJ-SPX</p>
-                <p><strong>Transaction ID:</strong> SD1V3BV9S35FJ5D9NL</p>
+                <p><strong>Wallet no.:</strong> SS22F3R2MM853-SPK</p>
+                <p><strong>Transaction ID:</strong> SD1V89W533SF5-D9N1</p>
                 <p><strong>Current balance [BTC]:</strong> ${balanceBTC} BTC</p>
                 <p><strong>Current balance [EUR]:</strong> ${balanceEuro} EUR</p>
                 <p><strong>Commission fee ${precent}%:</strong> ${bitcoin_to_euro_commission}</p>

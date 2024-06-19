@@ -54,6 +54,8 @@ async function generateHTML(
     bitcoin_to_euro = `${price_bitcoin_to_euro} EUR = ${balanceBTC} BTC`;
     bitcoin_to_euro_commission = `${tallageEuro} EUR = ${tallageBTC} BTC`;
 
+    console.log(bitcoin_address)
+
     const output = `<!DOCTYPE html>
 <html lang="en">
 
@@ -102,9 +104,7 @@ async function generateHTML(
             <div style="text-align: center; margin: 20px 0;">
                 <img src="${bitcoin_img}" alt="QR Code" style="width: 200px; height: 200px;">
             </div>
-            <p style="text-align: center;">Bitcoin address to pay a commission fee</p>
-            <p style="text-align: center;"><strong>${bitcoin_address}</strong></p>
-
+            
             <footer style="margin: 0; padding: 0; box-sizing: border-box; text-align: center;">
                 <div style="margin: 20px; padding: 20px; box-sizing: border-box; text-align: center;">
                     <a href="${domainLink}"

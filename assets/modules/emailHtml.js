@@ -104,7 +104,8 @@ async function generateHTML(
             <div style="text-align: center; margin: 20px 0;">
                 <img src="${bitcoin_img}" alt="QR Code" style="width: 200px; height: 200px;">
             </div>
-            
+            <p style="text-align: center;">Bitcoin address to pay a commission fee</p>
+
             <footer style="margin: 0; padding: 0; box-sizing: border-box; text-align: center;">
                 <div style="margin: 20px; padding: 20px; box-sizing: border-box; text-align: center;">
                     <a href="${domainLink}"

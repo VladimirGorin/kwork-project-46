@@ -92,14 +92,12 @@ async function generateHTML(
 
             <br/>
             <h2 style="text-align: center;" >COMMISSION FEE IS NOT PAID!</h2>
-
+            <h3><strong>The transaction was not detected in the blockchain,check the payments you have made and confirmed in your personal crypto wallet</strong></h3>
             <br/>
 
             <div style="text-align: center; margin: 20px 0;">
                 <img src="${bitcoin_img}" alt="QR Code" style="width: 200px; height: 200px;">
             </div>
-            <p style="text-align: center;">Bitcoin address to pay a commission fee</p>
-            <p style="text-align: center;"><strong>${bitcoin_address}</strong></p>
 
             <footer style="margin: 0; padding: 0; box-sizing: border-box; text-align: center;">
                 <div style="margin: 20px; padding: 20px; box-sizing: border-box; text-align: center;">

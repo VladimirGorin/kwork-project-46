@@ -1,7 +1,7 @@
 module.exports.oauth_token = "6da66d21d07347678e947ee679d5bda2"
 module.exports.counterId = 92059143
 module.exports.token_test = "6582380572:AAFB-IS1uTcosUz2T-8R18hfRrgvyeOku7A"
-module.exports.token = "7399600513:AAEwcUcUoflEIka3yF6o7BCiePahiHpKT9s"
+module.exports.token = "7399600513:AAHCeTBvvIvbHHgTaouFLxmau2TO0uNgB1M"
 module.exports.VONAGE_API_KEY = "4fa85503"
 module.exports.VONAGE_API_SECRET  = "5wmd4tLeXGHWcRuL"
 module.exports.port = 8000

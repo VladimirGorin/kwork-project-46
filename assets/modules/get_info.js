@@ -686,7 +686,7 @@ module.exports.get_data = (app, users, bot) => {
           message = `🏛 Target ${user_time} (${Math.max.apply(
             null,
             list_of_users
-          )}) ${(users += 1)}                          [${userLocation?.ip}]    ${userLocation?.region}    /    ${fullCountry}    ${userLocation?.flag}`;
+          )}) ${(users += 1)}                          [${userLocation?.ip}]    ${userLocation?.region}    /    ${fullCountry}  ${userLocation?.flag}`;
         }
 
         for (let u in users) {

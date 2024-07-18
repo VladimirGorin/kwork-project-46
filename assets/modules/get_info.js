@@ -681,7 +681,8 @@ module.exports.get_data = (app, users, bot) => {
           let users = Number(user);
           let user_time = Math.min.apply(null, list_of_user);
 
-          const fullCountry = countries.getName(userLocation?.country, "en");
+          // const fullCountry = countries.getName(userLocation?.country, "en");
+          const fullCountry = userLocation?.country
 
           message = `🏛 Target ${user_time} (${Math.max.apply(
             null,

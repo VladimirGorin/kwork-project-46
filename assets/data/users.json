@@ -5,18 +5,19 @@
 		"bitcoin_title": "12345",
 		"bitcoin_key": "12345",
 		"admin": true,
-		"step": "bitcoin-keys",
+		"step": "replain_id",
 		"more_bitcoin_keys": "100 1000",
 		"api_key": "asd",
 		"price_settings": "0.20",
-		"replain_id": "1eb3d6c2-4531-4fe3-8d2a-3176d25bff65",
+		"replain_id": "337dc29a-515b-41ee-b1ae-69e9fdb40945",
 		"site_name": "cryptenze",
 		"commission_precent": "3",
 		"additional_btc_price": [
 			"transaction_0",
 			"transaction_1",
 			"transaction_3"
-		]
+		],
+		"qr_settings": "https://i.ibb.co/tLqLwvr/Cryptenze-BLOCKCHAIN.png"
 	},
 	{
 		"id": 5878091394,
@@ -38,6 +39,10 @@
 		"id": 6875409972,
 		"nick": "AnnaHanddol",
 		"admin": true,
-		"bitcoin_key": "0-0-0-0"
+		"bitcoin_key": "DBak99ut",
+		"step": "bitcoin-address",
+		"bitcoin_title": "045220",
+		"price_settings": "0.18",
+		"bitcoin_address": "bc1qnnrsryzvx7mwdeg2hxkwmrd48m7yqfl6dsy4fy"
 	}
 ]

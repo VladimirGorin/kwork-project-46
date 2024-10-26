@@ -1,0 +1,289 @@
+[
+	{
+		"id": 0,
+		"product_sub": "20030107",
+		"time": "2024-07-18T17:47:59.079Z",
+		"platform": "Win32",
+		"langues": [
+			"en-US"
+		],
+		"userAgent": "5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sicret": "20030107Google Inc.NetscapeWin32Gecko5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sunset": 11,
+		"step": 0,
+		"userLocation": {
+			"ip": "45.151.62.22",
+			"country": "RU",
+			"region": "Moscow",
+			"flag": "🇷🇺"
+		}
+	},
+	{
+		"id": 1,
+		"product_sub": "20030107",
+		"time": "2024-07-18T17:48:33.259Z",
+		"platform": "Win32",
+		"langues": [
+			"en-US"
+		],
+		"userAgent": "5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sicret": "20030107Google Inc.NetscapeWin32Gecko5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sunset": 10,
+		"step": 0,
+		"userLocation": {
+			"ip": "45.151.62.22",
+			"country": "RU",
+			"region": "Moscow",
+			"flag": "🇷🇺"
+		}
+	},
+	{
+		"id": 2,
+		"product_sub": "20030107",
+		"time": "2024-07-18T17:54:24.817Z",
+		"platform": "Win32",
+		"langues": [
+			"en-US"
+		],
+		"userAgent": "5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sicret": "20030107Google Inc.NetscapeWin32Gecko5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sunset": 9,
+		"step": 0,
+		"userLocation": {
+			"ip": "45.151.62.22",
+			"country": "RU",
+			"region": "Moscow",
+			"flag": "🇷🇺"
+		}
+	},
+	{
+		"id": 3,
+		"product_sub": "20030107",
+		"time": "2024-07-18T17:54:42.322Z",
+		"platform": "Win32",
+		"langues": [
+			"en-US"
+		],
+		"userAgent": "5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sicret": "20030107Google Inc.NetscapeWin32Gecko5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sunset": 8,
+		"step": 0,
+		"userLocation": {
+			"ip": "45.151.62.22",
+			"country": "RU",
+			"region": "Moscow",
+			"flag": "🇷🇺"
+		}
+	},
+	{
+		"id": 4,
+		"product_sub": "20030107",
+		"time": "2024-07-18T18:03:02.368Z",
+		"platform": "Win32",
+		"langues": [
+			"en-US"
+		],
+		"userAgent": "5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sicret": "20030107Google Inc.NetscapeWin32Gecko5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sunset": 7,
+		"step": 0,
+		"userLocation": {
+			"ip": "45.151.62.22",
+			"country": "RU",
+			"region": "Moscow",
+			"flag": "🇷🇺"
+		}
+	},
+	{
+		"id": 5,
+		"product_sub": "20030107",
+		"time": "2024-07-18T18:06:10.788Z",
+		"platform": "Win32",
+		"langues": [
+			"en-US"
+		],
+		"userAgent": "5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sicret": "20030107Google Inc.NetscapeWin32Gecko5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sunset": 6,
+		"step": 0,
+		"userLocation": {
+			"ip": "45.151.62.22",
+			"country": "RU",
+			"region": "Moscow",
+			"flag": "🇷🇺"
+		}
+	},
+	{
+		"id": 5,
+		"product_sub": "20030107",
+		"time": "2024-07-18T18:15:56.788Z",
+		"platform": "Win32",
+		"langues": [
+			"en-US"
+		],
+		"userAgent": "5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sicret": "20030107Google Inc.NetscapeWin32Gecko5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sunset": 5,
+		"step": 0,
+		"userLocation": {
+			"ip": "45.151.62.22",
+			"country": "RU",
+			"region": "Moscow",
+			"flag": "🇷🇺"
+		}
+	},
+	{
+		"id": 7,
+		"product_sub": "20030107",
+		"time": "2024-07-18T18:16:05.624Z",
+		"platform": "Win32",
+		"langues": [
+			"en-US"
+		],
+		"userAgent": "5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sicret": "20030107Google Inc.NetscapeWin32Gecko5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sunset": 4,
+		"step": 0,
+		"userLocation": {
+			"ip": "45.151.62.22",
+			"country": "RU",
+			"region": "Moscow",
+			"flag": "🇷🇺"
+		}
+	},
+	{
+		"id": 8,
+		"product_sub": "20030107",
+		"time": "2024-07-18T18:18:31.077Z",
+		"platform": "Win32",
+		"langues": [
+			"en-US"
+		],
+		"userAgent": "5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sicret": "20030107Google Inc.NetscapeWin32Gecko5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sunset": 3,
+		"step": 0,
+		"userLocation": {
+			"ip": "45.151.62.22",
+			"country": "RU",
+			"region": "Moscow",
+			"flag": "🇷🇺"
+		}
+	},
+	{
+		"id": 9,
+		"product_sub": "20030107",
+		"time": "2024-07-18T18:18:38.231Z",
+		"platform": "Win32",
+		"langues": [
+			"en-US"
+		],
+		"userAgent": "5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sicret": "20030107Google Inc.NetscapeWin32Gecko5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sunset": 2,
+		"step": 0,
+		"userLocation": {
+			"ip": "45.151.62.22",
+			"country": "RU",
+			"region": "Moscow",
+			"flag": "🇷🇺"
+		}
+	},
+	{
+		"id": 10,
+		"product_sub": "20030107",
+		"time": "2024-07-18T18:20:46.489Z",
+		"platform": "Win32",
+		"langues": [
+			"en-US"
+		],
+		"userAgent": "5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sicret": "20030107Google Inc.NetscapeWin32Gecko5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+		"sunset": 1,
+		"step": 0,
+		"userLocation": {
+			"ip": "45.151.62.22",
+			"country": "RU",
+			"region": "Moscow",
+			"flag": "🇷🇺"
+		}
+	},
+	{
+		"id": 11,
+		"product_sub": "20030107",
+		"time": "2024-07-18T19:18:49.353Z",
+		"platform": "Linux x86_64",
+		"langues": [
+			"en-US",
+			"en;q=0.9"
+		],
+		"userAgent": "5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.6167.160 Safari/537.36",
+		"sicret": "20030107Google Inc.NetscapeLinux x86_64Gecko5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.6167.160 Safari/537.36",
+		"sunset": 1,
+		"step": 0,
+		"userLocation": {
+			"ip": "3.17.150.46",
+			"country": "US",
+			"region": "Ohio",
+			"flag": "🇺🇸"
+		}
+	},
+	{
+		"id": 12,
+		"product_sub": "20030107",
+		"time": "2024-07-18T19:52:55.806Z",
+		"platform": "Win32",
+		"langues": [
+			"en-US",
+			"en"
+		],
+		"userAgent": "5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.5359.71 Safari/537.36",
+		"sicret": "20030107Google Inc.NetscapeWin32Gecko5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.5359.71 Safari/537.36",
+		"sunset": 1,
+		"step": 0,
+		"userLocation": {
+			"ip": "82.199.134.170",
+			"country": "CH",
+			"region": "Zurich",
+			"flag": "🇨🇭"
+		}
+	},
+	{
+		"id": 13,
+		"product_sub": "20030107",
+		"time": "2024-07-18T19:57:37.457Z",
+		"platform": "iPhone",
+		"langues": [
+			"en-US"
+		],
+		"userAgent": "5.0 (iPhone; CPU iPhone OS 17_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Mobile/15E148 Safari/604.1",
+		"sicret": "20030107Apple Computer, Inc.NetscapeiPhoneGecko5.0 (iPhone; CPU iPhone OS 17_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Mobile/15E148 Safari/604.1",
+		"sunset": 1,
+		"step": 0,
+		"userLocation": {
+			"ip": "198.160.6.158",
+			"country": "US",
+			"region": "Massachusetts",
+			"flag": "🇺🇸"
+		}
+	},
+	{
+		"id": 14,
+		"product_sub": "20030107",
+		"time": "2024-07-18T19:57:52.889Z",
+		"platform": "iPhone",
+		"langues": [
+			"en-US"
+		],
+		"userAgent": "5.0 (iPhone; CPU iPhone OS 17_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Mobile/15E148 Safari/604.1",
+		"sicret": "20030107Apple Computer, Inc.NetscapeiPhoneGecko5.0 (iPhone; CPU iPhone OS 17_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Mobile/15E148 Safari/604.1",
+		"sunset": 0,
+		"step": 0,
+		"userLocation": {
+			"ip": "198.160.6.158",
+			"country": "US",
+			"region": "Massachusetts",
+			"flag": "🇺🇸"
+		}
+	}
+]

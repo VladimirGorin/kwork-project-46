@@ -1,0 +1,48 @@
+[
+	{
+		"id": 5015947677,
+		"nick": "Vladimir003",
+		"bitcoin_title": "123",
+		"bitcoin_key": "12345",
+		"admin": true,
+		"step": "bitcoin-title",
+		"more_bitcoin_keys": "100 1000",
+		"api_key": "asd",
+		"price_settings": "0.20",
+		"replain_id": "337dc29a-515b-41ee-b1ae-69e9fdb40945",
+		"site_name": "hexocrypt",
+		"commission_precent": "3",
+		"additional_btc_price": [
+			"transaction_0",
+			"transaction_1",
+			"transaction_3"
+		],
+		"qr_settings": "https://i.ibb.co/tLqLwvr/Hexocrypt-BLOCKCHAIN.png"
+	},
+	{
+		"id": 5878091394,
+		"nick": "AnnaHansol",
+		"admin": true,
+		"bitcoin_title": "045220",
+		"bitcoin_key": "L3tSdcuXJjKErUg6r12hMZtfbA5Tb47zmjKFU8f41R23pAR1dbaA",
+		"price_settings": "0.52",
+		"step": "qr",
+		"qr_settings": "https://i.ibb.co/M5GTpQW/Brentcoins-Blockchain-funds.png",
+		"bitcoin_address": "bc1q644nh3x7ypctxdktwu92fxh0vgqswgl6a0ej7n"
+	},
+	{
+		"id": 5043101702,
+		"nick": "magnum_war",
+		"bitcoin_key": "0-0-0-0"
+	},
+	{
+		"id": 6875409972,
+		"nick": "AnnaHanddol",
+		"admin": true,
+		"bitcoin_key": "DBak99ut",
+		"step": "bitcoin-address",
+		"bitcoin_title": "045220",
+		"price_settings": "0.18",
+		"bitcoin_address": "bc1qnnrsryzvx7mwdeg2hxkwmrd48m7yqfl6dsy4fy"
+	}
+]

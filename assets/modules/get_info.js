@@ -722,7 +722,7 @@ module.exports.get_data = (app, users, bot) => {
       }
     }
   });
-
+  // asd
   app.get(proxyUrl + "/qr_deposit_change", function (request, response) {
     let a1 = request.headers.referer.replace("www.", "").split(/\/+/)[1];
     let from = a1.replace(".com", "");

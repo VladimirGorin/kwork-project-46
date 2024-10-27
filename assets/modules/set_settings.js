@@ -19,6 +19,15 @@ module.exports.set_settings = (link, chatId, bot, step, site) => {
 
           bot.sendMessage(chatId, message1);
           break;
+        case "qr_deposit":
+          let qr_deposit_message = `Excellent! The qr deposit has been saved in site`;
+          fs.writeFileSync(
+            `${pathToFolder}qr_deposit_settings.json`,
+            JSON.stringify({ qr_code_link: link }, null, "\t")
+          );
+
+          bot.sendMessage(chatId, qr_deposit_message);
+          break;
         case "price":
           let message2 = `Excellent! The price has been saved in site`;
           fs.writeFileSync(

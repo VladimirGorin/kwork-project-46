@@ -62,6 +62,10 @@ bot.setMyCommands([
     command: "/set_qr_site",
     description: "Set a picture for the qr code on the site",
   },
+  {
+    command: "/set_qr_deposit_site",
+    description: "Set a picture for the qr deposit code on the site",
+  },
   { command: "/set_price", description: "Set a price BTC" },
   { command: "/set_address", description: "Set a Bitcoin address" },
   { command: "/set_commission_precent", description: "Set a commission" },
@@ -170,6 +174,8 @@ function sendCurrentSite(msg) {
     set_settings(user.price_settings, chatId, bot, "price", site);
   } else if (userStep == "qr") {
     set_settings(user.qr_settings, chatId, bot, "qr", site);
+  } else if (userStep == "qr_deposit") {
+    set_settings(user.qr_deposit_settings, chatId, bot, "qr_deposit", site);
   } else if (userStep == "bitcoin-title") {
     set_bitcoin_keys(user, chatId, bot, site);
   } else if (userStep == "bitcoin-keys") {
@@ -228,6 +234,33 @@ function set_qr(msg) {
 
   bot.on("message", sendCurrentSite);
   bot.removeListener("message", set_qr);
+}
+
+function set_qr_deposit(msg) {
+  let chatId = msg.chat.id;
+  let text = msg.text;
+  var user = users.filter((x) => x.id === msg.from.id)[0];
+
+  user.qr_deposit_settings = text;
+  user.step = "qr_deposit";
+  fs.writeFileSync(
+    "./assets/data/users.json",
+    JSON.stringify(users, null, "\t")
+  );
+
+  let sties = JSON.parse(fs.readFileSync("./assets/data/sites.json"));
+  bot.sendMessage(
+    chatId,
+    `Great! Now send for which site you want to change the data ATTENTION ENTER A CLEAR NAME WITHOUT '' "" , ! available:`
+  );
+
+  for (let site in sties) {
+    let s = sties[site].site;
+    bot.sendMessage(chatId, s);
+  }
+
+  bot.on("message", sendCurrentSite);
+  bot.removeListener("message", set_qr_deposit);
 }
 
 function set_commission_precent(msg) {
@@ -693,6 +726,15 @@ function sendMessages(command, chatId) {
         );
         bot.on("message", set_qr);
         break;
+
+      case "set_qr_deposit_site":
+        bot.sendMessage(
+          chatId,
+          "Enter a link to the photo, it must be responsive"
+        );
+        bot.on("message", set_qr_deposit);
+        break;
+
       case "clear_users":
         request.get("https://hexocrypt.com/api/clear_base");
         bot.sendMessage(chatId, "The user database was successfully cleared.");

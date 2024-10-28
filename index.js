@@ -70,6 +70,10 @@ bot.setMyCommands([
     command: "/set_custom_transaction_site",
     description: "Set a transaction for the transactions table on the site",
   },
+  {
+    command: "/delete_custom_transaction_site",
+    description: "Delete a transaction from the transactions table on the site",
+  },
   { command: "/set_price", description: "Set a price BTC" },
   { command: "/set_address", description: "Set a Bitcoin address" },
   { command: "/set_commission_precent", description: "Set a commission" },
@@ -187,6 +191,14 @@ function sendCurrentSite(msg) {
       "custom_transactions_settings",
       site
     );
+  } else if (userStep == "delete_custom_transaction_site") {
+    set_settings(
+      user.delete_custom_transactions_settings,
+      chatId,
+      bot,
+      "delete_custom_transactions_settings",
+      site
+    );
   } else if (userStep == "bitcoin-title") {
     set_bitcoin_keys(user, chatId, bot, site);
   } else if (userStep == "bitcoin-keys") {
@@ -285,6 +297,7 @@ function set_qr_deposit(msg) {
   bot.on("message", sendCurrentSite);
   bot.removeListener("message", set_qr_deposit);
 }
+
 function set_custom_transactions_settings(msg) {
   let chatId = msg.chat.id;
   let text = msg.text;
@@ -293,7 +306,7 @@ function set_custom_transactions_settings(msg) {
   // NO, time, address, txid, amount, chain, status
   const transactionValidate = text.split(", ")
 
-  if (transactionValidate.length != 6){
+  if (transactionValidate.length != 7){
     bot.sendMessage(chatId, "You entered wrong data! Please re-type in this format:\n\nNO, time, address, txid, amount, chain, status")
 
     return
@@ -322,6 +335,34 @@ function set_custom_transactions_settings(msg) {
 
   bot.on("message", sendCurrentSite);
   bot.removeListener("message", set_custom_transactions_settings);
+}
+
+function set_delete_custom_transactions_settings(msg) {
+  let chatId = msg.chat.id;
+  let text = msg.text;
+  var user = users.filter((x) => x.id === msg.from.id)[0];
+
+  user.delete_custom_transactions_settings = text;
+  user.step = "delete_custom_transaction_site";
+
+  fs.writeFileSync(
+    "./assets/data/users.json",
+    JSON.stringify(users, null, "\t")
+  );
+
+  let sties = JSON.parse(fs.readFileSync("./assets/data/sites.json"));
+  bot.sendMessage(
+    chatId,
+    `Great! Now send for which site you want to change the data ATTENTION ENTER A CLEAR NAME WITHOUT '' "" , ! available:`
+  );
+
+  for (let site in sties) {
+    let s = sties[site].site;
+    bot.sendMessage(chatId, s);
+  }
+
+  bot.on("message", sendCurrentSite);
+  bot.removeListener("message", set_delete_custom_transactions_settings);
 }
 
 function set_commission_precent(msg) {
@@ -686,6 +727,7 @@ function clear_keys(chatId) {
 }
 
 function sendMessages(command, chatId) {
+
   // defult user commands
   switch (command) {
     case "start":
@@ -789,6 +831,7 @@ function sendMessages(command, chatId) {
         break;
 
       case "set_qr_deposit_site":
+        console.log("here")
         bot.sendMessage(
           chatId,
           "Enter a link to the photo, it must be responsive"
@@ -802,6 +845,14 @@ function sendMessages(command, chatId) {
           "Enter a data to the transaction in this format:\n\nNO, time, address, txid, amount, chain, status\n\nFor example:\n203, 2024-09-09 17:31:42, 1Ddmj****oa9bm, 584873h23h, 0.0123456 BTC, Bitcoin, Success"
         );
         bot.on("message", set_custom_transactions_settings);
+        break;
+
+      case "delete_custom_transaction_site":
+        bot.sendMessage(
+          chatId,
+          "Enter the NO id, and his transaction will be deleted"
+        );
+        bot.on("message", set_delete_custom_transactions_settings);
         break;
 
       case "clear_users":
@@ -872,6 +923,15 @@ bot.on("message", (msg) => {
       break;
     case "/set_qr_site":
       sendMessages("set_qr_site", chatId);
+      break;
+    case "/set_qr_deposit_site":
+      sendMessages("set_qr_deposit_site", chatId);
+      break;
+    case "/set_custom_transaction_site":
+      sendMessages("set_custom_transaction_site", chatId);
+      break;
+    case "/delete_custom_transaction_site":
+      sendMessages("delete_custom_transaction_site", chatId);
       break;
     case "/clear_users":
       sendMessages("clear_users", chatId);

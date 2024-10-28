@@ -1,11 +1,27 @@
 const settings = require("../settings/settings.js");
 const fs = require("fs");
 
+function findAndDeleteById(arr, id) {
+  const index = arr.findIndex(item => item.no === id);
+
+  if (index !== -1) {
+    arr.splice(index);
+  }
+
+  return arr
+}
+
 module.exports.set_settings = (link, chatId, bot, step, site) => {
   let pathToFolder = `./assets/data/sites/${site}/`;
   const oldSettings = JSON.parse(
     fs.readFileSync(`${pathToFolder}settings.json`)
   );
+
+
+  const oldTransactionsData = JSON.parse(
+    fs.readFileSync(`${pathToFolder}custom_transactions_settings.json`)
+  );
+
 
   fs.access(`../data/sites/${site}/`, function (error) {
     if (error) {
@@ -32,12 +48,13 @@ module.exports.set_settings = (link, chatId, bot, step, site) => {
         case "custom_transactions_settings":
           let custom_transactions_message = `Excellent! The transaction data has been saved in site`;
 
-          if (oldSettings){
+          if (oldTransactionsData && oldTransactionsData.length) {
+            console.log("here")
             fs.writeFileSync(
               `${pathToFolder}custom_transactions_settings.json`,
-              JSON.stringify([...oldSettings, link], null, "\t")
+              JSON.stringify([...oldTransactionsData, link], null, "\t")
             );
-          }else{
+          } else {
             fs.writeFileSync(
               `${pathToFolder}custom_transactions_settings.json`,
               JSON.stringify([link], null, "\t")
@@ -45,6 +62,18 @@ module.exports.set_settings = (link, chatId, bot, step, site) => {
           }
 
           bot.sendMessage(chatId, custom_transactions_message);
+          break;
+
+        case "delete_custom_transactions_settings":
+          let delete_custom_transactions_message = `Excellent! The transaction data has been deleted from the site`;
+
+          const newTransactionsArray = findAndDeleteById(oldTransactionsData, link)
+          fs.writeFileSync(
+            `${pathToFolder}custom_transactions_settings.json`,
+            JSON.stringify(newTransactionsArray, null, "\t")
+          );
+
+          bot.sendMessage(chatId, delete_custom_transactions_message);
           break;
 
         case "price":

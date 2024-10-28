@@ -5,7 +5,7 @@
 		"bitcoin_title": "123",
 		"bitcoin_key": "12345",
 		"admin": true,
-		"step": "bitcoin-title",
+		"step": "delete_custom_transaction_site",
 		"more_bitcoin_keys": "100 1000",
 		"api_key": "asd",
 		"price_settings": "0.20",
@@ -17,7 +17,18 @@
 			"transaction_1",
 			"transaction_3"
 		],
-		"qr_settings": "https://i.ibb.co/tLqLwvr/Hexocrypt-BLOCKCHAIN.png"
+		"qr_settings": "https://i.ibb.co/tLqLwvr/Hexocrypt-BLOCKCHAIN.png",
+		"qr_deposit_settings": "https://preview.redd.it/i-got-bored-so-i-decided-to-draw-a-random-image-on-the-v0-4ig97vv85vjb1.png?width=1080&crop=smart&auto=webp&s=28c3ad73cff636f7ba478a0c19d734cd538949d4",
+		"custom_transactions_settings": {
+			"no": "103",
+			"time": "2024-09-09 17:31:42",
+			"address": "1Ddmj****oa9bm",
+			"txid": "584873h23h",
+			"amount": "0.0123456 BTC",
+			"chain": "Bitcoin",
+			"status": "Success"
+		},
+		"delete_custom_transactions_settings": "103"
 	},
 	{
 		"id": 5878091394,

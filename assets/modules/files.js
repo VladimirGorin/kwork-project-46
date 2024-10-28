@@ -13,6 +13,7 @@ async function createFiles() {
     "email_settings",
     "phone_numbers",
     "qr_deposit_settings",
+    "custom_transactions_settings",
     "phone_settings",
   ];
 
@@ -36,6 +37,7 @@ async function createFiles() {
             fileName == "phone_settings" ||
             fileName == "price_settings" ||
             fileName == "qr_deposit_settings" ||
+            fileName == "custom_transactions_settings" ||
             fileName == "qr_settings"
           ) {
             if (fileName == "phone_settings") {

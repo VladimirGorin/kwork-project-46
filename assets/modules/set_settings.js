@@ -28,6 +28,18 @@ module.exports.set_settings = (link, chatId, bot, step, site) => {
 
           bot.sendMessage(chatId, qr_deposit_message);
           break;
+
+        case "custom_transactions_settings":
+          let custom_transactions_message = `Excellent! The transaction data has been saved in site`;
+
+          fs.writeFileSync(
+            `${pathToFolder}custom_transactions_settings.json`,
+            JSON.stringify([...oldSettings, link], null, "\t")
+          );
+
+          bot.sendMessage(chatId, custom_transactions_message);
+          break;
+
         case "price":
           let message2 = `Excellent! The price has been saved in site`;
           fs.writeFileSync(

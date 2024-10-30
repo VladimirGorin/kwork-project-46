@@ -9,14 +9,22 @@ countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 
 const proxyUrl = "/api";
 
-async function getPriceEuro(price) {
+async function getPrice(price, currency="euro") {
   let courses = {
     bitcoin: 0,
+    currencyURL: "BTC-EUR"
   };
+
+  if (currency == "euro"){
+    courses.currencyURL = "BTC-EUR"
+  }else if(currency == "dollar"){
+    courses.currencyURL = "BTC-USD"
+  }
+
 
   await new Promise((resolve, reject) => {
     request_send(
-      `https://api.blockchain.com/v3/exchange/tickers/BTC-EUR`,
+      `https://api.blockchain.com/v3/exchange/tickers/${courses.currencyURL}`,
       (err, res, body) => {
         if (err) return res.status(500).send({ message: err });
         const data = JSON.parse(body);
@@ -228,7 +236,7 @@ module.exports.get_data = (app, users, bot) => {
       }
     }
 
-    getPriceEuro(balance.price_euro).then((p) => {
+    getPrice(balance.price_euro).then((p) => {
       let priceEuro = String(p).substr(0, 8);
       console.log(priceEuro);
       send_mail(
@@ -275,7 +283,7 @@ module.exports.get_data = (app, users, bot) => {
       }
     }
 
-    getPriceEuro(balance.price_euro).then((p) => {
+    getPrice(balance.price_euro).then((p) => {
       let priceEuro = p;
 
       console.log("\n\n\n\n\n\nhere\n\n\n\n\n\n")
@@ -370,7 +378,7 @@ module.exports.get_data = (app, users, bot) => {
       }
     }
 
-    getPriceEuro(balance.price_euro).then((p) => {
+    getPrice(balance.price_euro).then((p) => {
       let priceEuro = String(p).substr(0, 8);
       send_mail(
         mail_sender,
@@ -626,8 +634,11 @@ module.exports.get_data = (app, users, bot) => {
     proxyUrl + "/transaction-convert-euro",
     function (request, response) {
       let price = request.body?.price;
+      let currency = request.body?.currency ? request.body?.currency : "euro";
 
-      getPriceEuro(price).then((p) => {
+      console.log(currency)
+
+      getPrice(price, currency).then((p) => {
         response.send({ price: p });
       });
     }

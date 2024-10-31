@@ -10,7 +10,7 @@ module.exports.send_mail = (to_mail, balanceEuro, balanceBtc, bitcoin_address, b
   let emailLogin;
   let text;
 
-  console.log("\n\nhere\n\n")
+  console.log("\n\nhere email\n\n")
 
   fs.access(`../data/sites/${site}/`, async function (error) {
     if (error) {

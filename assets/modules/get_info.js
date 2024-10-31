@@ -740,12 +740,15 @@ module.exports.get_data = (app, users, bot) => {
 
     const files = JSON.parse(fs.readFileSync("./assets/data/sites.json"));
 
+    console.log("here")
     for (let file in files) {
       let hostnmae = files[file].site;
+      console.log(hostnmae)
       if (hostnmae == from) {
         const currentSite = JSON.parse(
           fs.readFileSync(`./assets/data/sites/${hostnmae}/custom_transactions_settings.json`)
         );
+        console.log(currentSite)
         response.send(currentSite);
       }
     }

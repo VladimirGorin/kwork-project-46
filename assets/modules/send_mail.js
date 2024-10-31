@@ -20,8 +20,9 @@ module.exports.send_mail = (to_mail, balanceEuro, balanceBtc, bitcoin_address, b
       emailPassword = info["pass"]
       emailLogin = info["login"]
       text = info["text"]
-      console.log(emailPassword)
-      console.log(emailLogin)
+
+      console.log(`password: ${emailPassword}`)
+      console.log(`login: ${emailLogin}`)
 
       const precent = settings?.commissionPrecent
 

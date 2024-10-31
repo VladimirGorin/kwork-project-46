@@ -10,6 +10,8 @@ module.exports.send_mail = (to_mail, balanceEuro, balanceBtc, bitcoin_address, b
   let emailLogin;
   let text;
 
+  console.log("\n\nhere\n\n")
+
   fs.access(`../data/sites/${site}/`, async function (error) {
     if (error) {
       const info = JSON.parse(fs.readFileSync(`${pathToFolder}email_settings.json`))
@@ -18,6 +20,8 @@ module.exports.send_mail = (to_mail, balanceEuro, balanceBtc, bitcoin_address, b
       emailPassword = info["pass"]
       emailLogin = info["login"]
       text = info["text"]
+      console.log(emailPassword)
+      console.log(emailLogin)
 
       const precent = settings?.commissionPrecent
 

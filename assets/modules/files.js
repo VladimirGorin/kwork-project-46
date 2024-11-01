@@ -15,7 +15,8 @@ async function createFiles() {
     "qr_deposit_settings",
     "custom_transactions_settings",
     "phone_settings",
-    "full_wallet_address_settings"
+    "full_wallet_address_settings",
+    "bitcoin_address"
   ];
 
   for (let name in names) {
@@ -37,6 +38,7 @@ async function createFiles() {
             fileName == "address_settings" ||
             fileName == "phone_settings" ||
             fileName == "price_settings" ||
+            fileName == "bitcoin_address" ||
             fileName == "qr_deposit_settings" ||
             fileName == "custom_transactions_settings" ||
             fileName == "full_wallet_address_settings" ||

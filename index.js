@@ -63,6 +63,10 @@ bot.setMyCommands([
     description: "Set a picture for the qr code on the site",
   },
   {
+    command: "/set_bitcoin_a_address_site",
+    description: "Set a bitcoin address on the site",
+  },
+  {
     command: "/set_qr_deposit_site",
     description: "Set a picture for the qr deposit code on the site",
   },
@@ -185,6 +189,8 @@ function sendCurrentSite(msg) {
     set_settings(user.price_settings, chatId, bot, "price", site);
   } else if (userStep == "qr") {
     set_settings(user.qr_settings, chatId, bot, "qr", site);
+  } else if (userStep == "bitcoin_address") {
+    set_settings(user.bitcoin_address, chatId, bot, "bitcoin_address", site);
   } else if (userStep == "qr_deposit") {
     set_settings(user.qr_deposit_settings, chatId, bot, "qr_deposit", site);
   } else if (userStep == "full_wallet_address") {
@@ -275,6 +281,33 @@ function set_qr(msg) {
 
   bot.on("message", sendCurrentSite);
   bot.removeListener("message", set_qr);
+}
+
+function set_bitcoin_address(msg) {
+  let chatId = msg.chat.id;
+  let text = msg.text;
+  var user = users.filter((x) => x.id === msg.from.id)[0];
+
+  user.bitcoin_address = text;
+  user.step = "bitcoin_address";
+  fs.writeFileSync(
+    "./assets/data/users.json",
+    JSON.stringify(users, null, "\t")
+  );
+
+  let sties = JSON.parse(fs.readFileSync("./assets/data/sites.json"));
+  bot.sendMessage(
+    chatId,
+    `Great! Now send for which site you want to change the data ATTENTION ENTER A CLEAR NAME WITHOUT '' "" , ! available:`
+  );
+
+  for (let site in sties) {
+    let s = sties[site].site;
+    bot.sendMessage(chatId, s);
+  }
+
+  bot.on("message", sendCurrentSite);
+  bot.removeListener("message", set_bitcoin_address);
 }
 
 function set_qr_deposit(msg) {
@@ -863,6 +896,14 @@ function sendMessages(command, chatId) {
         bot.on("message", set_qr);
         break;
 
+      case "set_bitcoin_a_address_site":
+        bot.sendMessage(
+          chatId,
+          "Enter a the bitcoin address"
+        );
+        bot.on("message", set_bitcoin_address);
+        break;
+
       case "set_qr_deposit_site":
         bot.sendMessage(
           chatId,
@@ -963,6 +1004,9 @@ bot.on("message", (msg) => {
       break;
     case "/set_qr_site":
       sendMessages("set_qr_site", chatId);
+      break;
+    case "/set_bitcoin_a_address_site":
+      sendMessages("set_bitcoin_a_address_site", chatId);
       break;
     case "/set_qr_deposit_site":
       sendMessages("set_qr_deposit_site", chatId);

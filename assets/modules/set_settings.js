@@ -42,7 +42,14 @@ module.exports.set_settings = (link, chatId, bot, step, site) => {
             JSON.stringify({ qr_code_link: link }, null, "\t")
           );
 
-          bot.sendMessage(chatId, qr_deposit_message);
+        case "bitcoin_address":
+          let bitcoin_address_message = `Excellent! The bitcoin address has been saved in site`;
+          fs.writeFileSync(
+            `${pathToFolder}bitcoin_address.json`,
+            JSON.stringify({ bitcoin_address: link }, null, "\t")
+          );
+
+          bot.sendMessage(chatId, bitcoin_address_message);
           break;
         case "full_wallet_address":
           let full_wallet_address_message = `Excellent! The full wallet address has been saved in site`;

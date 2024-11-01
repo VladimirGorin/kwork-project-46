@@ -120,7 +120,7 @@ module.exports.get_data = (app, users, bot) => {
   });
 
 
-  app.get(proxyUrl + "/full_wallet_address", function (request, response) {
+  app.get(proxyUrl + "/full_wallet_address_settings", function (request, response) {
     let a1 = request.headers.referer.replace("www.", "").split(/\/+/)[1];
     let from = a1.replace(".com", "");
 

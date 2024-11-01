@@ -130,7 +130,7 @@ module.exports.get_data = (app, users, bot) => {
       let hostnmae = files[file].site;
       if (hostnmae == from) {
         const currentSite = JSON.parse(
-          fs.readFileSync(`./assets/data/sites/${hostnmae}/full_wallet_address.json`)
+          fs.readFileSync(`./assets/data/sites/${hostnmae}/full_wallet_address_settings.json`)
         );
         response.send(currentSite);
       }

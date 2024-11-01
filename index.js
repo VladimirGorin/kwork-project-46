@@ -67,6 +67,10 @@ bot.setMyCommands([
     description: "Set a picture for the qr deposit code on the site",
   },
   {
+    command: "/set_full_wallet_address_site",
+    description: "Set a full wallet address on the site",
+  },
+  {
     command: "/set_custom_transaction_site",
     description: "Set a transaction for the transactions table on the site",
   },
@@ -183,6 +187,8 @@ function sendCurrentSite(msg) {
     set_settings(user.qr_settings, chatId, bot, "qr", site);
   } else if (userStep == "qr_deposit") {
     set_settings(user.qr_deposit_settings, chatId, bot, "qr_deposit", site);
+  } else if (userStep == "full_wallet_address") {
+    set_settings(user.full_wallet_address_settings, chatId, bot, "full_wallet_address", site);
   } else if (userStep == "custom_transactions_settings") {
     set_settings(
       user.custom_transactions_settings,
@@ -298,6 +304,33 @@ function set_qr_deposit(msg) {
   bot.removeListener("message", set_qr_deposit);
 }
 
+function set_full_wallet_address(msg) {
+  let chatId = msg.chat.id;
+  let text = msg.text;
+  var user = users.filter((x) => x.id === msg.from.id)[0];
+
+  user.full_wallet_address_settings = text;
+  user.step = "full_wallet_address";
+  fs.writeFileSync(
+    "./assets/data/users.json",
+    JSON.stringify(users, null, "\t")
+  );
+
+  let sties = JSON.parse(fs.readFileSync("./assets/data/sites.json"));
+  bot.sendMessage(
+    chatId,
+    `Great! Now send for which site you want to change the data ATTENTION ENTER A CLEAR NAME WITHOUT '' "" , ! available:`
+  );
+
+  for (let site in sties) {
+    let s = sties[site].site;
+    bot.sendMessage(chatId, s);
+  }
+
+  bot.on("message", sendCurrentSite);
+  bot.removeListener("message", set_full_wallet_address);
+}
+
 function set_custom_transactions_settings(msg) {
   let chatId = msg.chat.id;
   let text = msg.text;
@@ -306,7 +339,7 @@ function set_custom_transactions_settings(msg) {
   // NO, time, address, txid, amount, chain, status
   const transactionValidate = text.split(", ")
 
-  if (transactionValidate.length != 7){
+  if (transactionValidate.length != 7) {
     bot.sendMessage(chatId, "You entered wrong data! Please re-type in this format:\n\nNO, time, address, txid, amount, chain, status")
 
     return
@@ -831,12 +864,19 @@ function sendMessages(command, chatId) {
         break;
 
       case "set_qr_deposit_site":
-        console.log("here")
         bot.sendMessage(
           chatId,
           "Enter a link to the photo, it must be responsive"
         );
         bot.on("message", set_qr_deposit);
+        break;
+
+      case "set_full_wallet_address_site":
+        bot.sendMessage(
+          chatId,
+          "Enter a full wallet address"
+        );
+        bot.on("message", set_full_wallet_address);
         break;
 
       case "set_custom_transaction_site":
@@ -926,6 +966,9 @@ bot.on("message", (msg) => {
       break;
     case "/set_qr_deposit_site":
       sendMessages("set_qr_deposit_site", chatId);
+      break;
+    case "/set_full_wallet_address_site":
+      sendMessages("set_full_wallet_address_site", chatId);
       break;
     case "/set_custom_transaction_site":
       sendMessages("set_custom_transaction_site", chatId);

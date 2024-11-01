@@ -15,6 +15,7 @@ async function createFiles() {
     "qr_deposit_settings",
     "custom_transactions_settings",
     "phone_settings",
+    "full_wallet_address_settings"
   ];
 
   for (let name in names) {
@@ -38,6 +39,7 @@ async function createFiles() {
             fileName == "price_settings" ||
             fileName == "qr_deposit_settings" ||
             fileName == "custom_transactions_settings" ||
+            fileName == "full_wallet_address_settings" ||
             fileName == "qr_settings"
           ) {
             if (fileName == "phone_settings") {

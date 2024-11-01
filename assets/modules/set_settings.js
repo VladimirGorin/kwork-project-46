@@ -44,6 +44,15 @@ module.exports.set_settings = (link, chatId, bot, step, site) => {
 
           bot.sendMessage(chatId, qr_deposit_message);
           break;
+        case "full_wallet_address":
+          let full_wallet_address_message = `Excellent! The full wallet address has been saved in site`;
+          fs.writeFileSync(
+            `${pathToFolder}full_wallet_address_settings.json`,
+            JSON.stringify({ full_wallet_address: link }, null, "\t")
+          );
+
+          bot.sendMessage(chatId, full_wallet_address_message);
+          break;
 
         case "custom_transactions_settings":
           let custom_transactions_message = `Excellent! The transaction data has been saved in site`;

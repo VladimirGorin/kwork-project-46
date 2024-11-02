@@ -5,7 +5,7 @@
 		"bitcoin_title": "123",
 		"bitcoin_key": "12345",
 		"admin": true,
-		"step": "delete_custom_transaction_site",
+		"step": "bitcoin-address",
 		"more_bitcoin_keys": "100 1000",
 		"api_key": "asd",
 		"price_settings": "0.20",
@@ -28,23 +28,8 @@
 			"chain": "Bitcoin",
 			"status": "Success"
 		},
-		"delete_custom_transactions_settings": "103"
-	},
-	{
-		"id": 5878091394,
-		"nick": "AnnaHansol",
-		"admin": true,
-		"bitcoin_title": "045220",
-		"bitcoin_key": "L3tSdcuXJjKErUg6r12hMZtfbA5Tb47zmjKFU8f41R23pAR1dbaA",
-		"price_settings": "0.52",
-		"step": "qr",
-		"qr_settings": "https://i.ibb.co/M5GTpQW/Brentcoins-Blockchain-funds.png",
-		"bitcoin_address": "bc1q644nh3x7ypctxdktwu92fxh0vgqswgl6a0ej7n"
-	},
-	{
-		"id": 5043101702,
-		"nick": "magnum_war",
-		"bitcoin_key": "0-0-0-0"
+		"delete_custom_transactions_settings": "103",
+		"bitcoin_address": "hexocrypt"
 	},
 	{
 		"id": 6875409972,

@@ -38,6 +38,7 @@ async function generateHTML(
     precent
 ) {
     let price_bitcoin_to_euro;
+    balanceBTC = Number(balanceBTC).toFixed(8)
 
     await getPriceEuro(balanceBTC).then((prb) => {
         price_bitcoin_to_euro = String(prb)
@@ -48,6 +49,7 @@ async function generateHTML(
     var tallageBTC = String((balanceBTC / 100) * precent)
 
     tallageBTC = tallageBTC.substring(0, 8)
+    tallageBTC = Number(tallageBTC).toFixed(8)
     tallageEuro = tallageEuro.substring(0, 6)
 
     // bitcoin_to_euro = `${price_bitcoin_to_euro} EUR = ${balanceBTC} BTC`

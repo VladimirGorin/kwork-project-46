@@ -62,10 +62,10 @@ bot.setMyCommands([
     command: "/set_qr_site",
     description: "Set a picture for the qr code on the site",
   },
-  {
-    command: "/set_bitcoin_a_address_site",
-    description: "Set a bitcoin address on the site",
-  },
+  // {
+  //   command: "/set_bitcoin_a_address_site",
+  //   description: "Set a bitcoin address on the site",
+  // },
   {
     command: "/set_qr_deposit_site",
     description: "Set a picture for the qr deposit code on the site",

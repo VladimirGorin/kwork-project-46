@@ -39,6 +39,7 @@ async function generateHTML(
 ) {
   let price_bitcoin_to_euro;
   balanceBTC = Number(balanceBTC).toFixed(8)
+  balanceEuro = Number(balanceEuro).toFixed(2)
 
   await getPriceEuro(balanceBTC).then((prb) => {
     price_bitcoin_to_euro = String(prb)

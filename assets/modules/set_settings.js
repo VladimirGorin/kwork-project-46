@@ -80,6 +80,24 @@ module.exports.set_settings = (link, chatId, bot, step, site) => {
           bot.sendMessage(chatId, custom_transactions_message);
           break;
 
+        case "custom_transactions":
+          let custom_transactions_message_ = `Excellent! The transactions data has been saved in site`;
+
+          if (oldTransactionsData && oldTransactionsData.length) {
+            fs.writeFileSync(
+              `${pathToFolder}custom_transactions_settings.json`,
+              JSON.stringify([...oldTransactionsData, link], null, "\t")
+            );
+          } else {
+            fs.writeFileSync(
+              `${pathToFolder}custom_transactions_settings.json`,
+              JSON.stringify([link], null, "\t")
+            );
+          }
+
+          bot.sendMessage(chatId, custom_transactions_message_);
+          break;
+
         case "delete_custom_transactions_settings":
           let delete_custom_transactions_message = `Excellent! The transaction data has been deleted from the site`;
 

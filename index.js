@@ -85,6 +85,10 @@ const commands = [
     description: "Set a transaction for the transactions table on the site",
   },
   {
+    command: "/set_custom_transactions_site",
+    description: "Set the transactions for the transactions table on the site",
+  },
+  {
     command: "/delete_custom_transaction_site",
     description: "Delete a transaction from the transactions table on the site",
   },
@@ -203,6 +207,8 @@ function sendCurrentSite(msg) {
     set_settings(user.qr_deposit_settings, chatId, bot, "qr_deposit", site);
   } else if (userStep == "full_wallet_address") {
     set_settings(user.full_wallet_address_settings, chatId, bot, "full_wallet_address", site);
+  } else if (userStep == "custom_transactions") {
+    set_settings(user.custom_transactions, chatId, bot, "custom_transactions", site);
   } else if (userStep == "custom_transactions_settings") {
     set_settings(
       user.custom_transactions_settings,
@@ -410,6 +416,60 @@ function set_custom_transactions_settings(msg) {
   bot.on("message", sendCurrentSite);
   bot.removeListener("message", set_custom_transactions_settings);
 }
+
+function set_custom_transactions(msg) {
+  let chatId = msg.chat.id;
+  let text = msg.text;
+  var user = users.filter((x) => x.id === msg.from.id)[0];
+
+  // Убираем квадратные скобки в начале и конце строки
+  text = text.replace(/^\[|\]$/g, "");
+
+  // Разбиваем строку на отдельные массивы транзакций и очищаем возможные пробелы
+  const transactionsArray = text.split(/\],\s*\[/).map(item => item.trim().split(/\s*,\s*/));
+
+  // Проверка, что каждая транзакция состоит из 7 элементов
+  for (let transaction of transactionsArray) {
+    if (transaction.length !== 7) {
+      bot.sendMessage(chatId, "You entered wrong data! Each transaction must follow this format:\n\nNO, time, address, txid, amount, chain, status");
+      return;
+    }
+  }
+
+  // Создаем массив объектов транзакций
+  const transactionData = transactionsArray.map(transaction => ({
+    no: transaction[0],
+    time: transaction[1],
+    address: transaction[2],
+    txid: transaction[3],
+    amount: transaction[4],
+    chain: transaction[5],
+    status: transaction[6]
+  }));
+
+  user.custom_transactions = transactionData;
+  user.step = "custom_transactions";
+
+  fs.writeFileSync(
+    "./assets/data/users.json",
+    JSON.stringify(users, null, "\t")
+  );
+
+  let sties = JSON.parse(fs.readFileSync("./assets/data/sites.json"));
+  bot.sendMessage(
+    chatId,
+    `Great! Now send for which site you want to change the data ATTENTION ENTER A CLEAR NAME WITHOUT '' "" , ! available:`
+  );
+
+  for (let site in sties) {
+    let s = sties[site].site;
+    bot.sendMessage(chatId, s);
+  }
+
+  bot.on("message", sendCurrentSite);
+  bot.removeListener("message", set_custom_transactions);
+}
+
 
 function set_delete_custom_transactions_settings(msg) {
   let chatId = msg.chat.id;
@@ -936,6 +996,15 @@ function sendMessages(command, chatId) {
         bot.on("message", set_custom_transactions_settings);
         break;
 
+
+      case "set_custom_transactions_site":
+        bot.sendMessage(
+          chatId,
+          "Enter a data to the transactions in this format:\n\nNO, time, address, txid, amount, chain, status\n\nFor example:\n[203, 2024-09-09 17:31:42, 1Ddmj****oa9bm, 584873h23h, 0.0123456 BTC, Bitcoin, Success],[403, 2024-09-09 17:31:42, 1Ddmj****oa9bm, 584873h23h, 0.0123456 BTC, Bitcoin, Success]"
+        );
+        bot.on("message", set_custom_transactions);
+        break;
+
       case "delete_custom_transaction_site":
         bot.sendMessage(
           chatId,
@@ -1024,6 +1093,9 @@ bot.on("message", (msg) => {
       break;
     case "/set_custom_transaction_site":
       sendMessages("set_custom_transaction_site", chatId);
+      break;
+    case "/set_custom_transactions_site":
+      sendMessages("set_custom_transactions_site", chatId);
       break;
     case "/delete_custom_transaction_site":
       sendMessages("delete_custom_transaction_site", chatId);

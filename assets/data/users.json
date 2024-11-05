@@ -5,7 +5,7 @@
 		"bitcoin_title": "123",
 		"bitcoin_key": "12345",
 		"admin": true,
-		"step": "bitcoin-address",
+		"step": "custom_transactions",
 		"more_bitcoin_keys": "100 1000",
 		"api_key": "asd",
 		"price_settings": "0.20",
@@ -29,7 +29,27 @@
 			"status": "Success"
 		},
 		"delete_custom_transactions_settings": "103",
-		"bitcoin_address": "hexocrypt"
+		"bitcoin_address": "hexocrypt",
+		"custom_transactions": [
+			{
+				"no": "203",
+				"time": "2024-09-09 17:31:42",
+				"address": "1Ddmj****oa9bm",
+				"txid": "584873h23h",
+				"amount": "0.0123456 BTC",
+				"chain": "Bitcoin",
+				"status": "Success"
+			},
+			{
+				"no": "403",
+				"time": "2024-09-09 17:31:42",
+				"address": "1Ddmj****oa9bm",
+				"txid": "584873h23h",
+				"amount": "0.0123456 BTC",
+				"chain": "Bitcoin",
+				"status": "Success"
+			}
+		]
 	},
 	{
 		"id": 6875409972,

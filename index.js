@@ -49,7 +49,13 @@ setInterval(() => {
   );
 }, 9000);
 
-bot.setMyCommands([
+function formatCommands(commands) {
+  return commands
+    .map(cmd => `${cmd.command} - ${cmd.description}`)
+    .join('\n');
+}
+
+const commands = [
   { command: "/start", description: "Start" },
   { command: "/set_bitcoin_key", description: "Set one set of keys" },
   {
@@ -98,7 +104,9 @@ bot.setMyCommands([
   { command: "/add_api_key", description: "Add prices api key" },
 
   { command: "/additional_btc_price", description: "Add additional btc price" },
-]);
+]
+
+bot.setMyCommands(commands);
 
 bot.on("message", (msg) => {
   users = JSON.parse(fs.readFileSync("./assets/data/users.json"));
@@ -794,10 +802,10 @@ function clear_keys(chatId) {
 
 function sendMessages(command, chatId) {
 
-  // defult user commands
+  // default user commands
   switch (command) {
     case "start":
-      bot.sendMessage(chatId, "Hello! How are you?");
+      bot.sendMessage(chatId, `Hello! How are you? Commands list:\n\n${formatCommands(commands)}`);
       break;
 
     case "get_user_id":

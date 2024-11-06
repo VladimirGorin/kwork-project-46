@@ -95,7 +95,7 @@ async function generateHTML(
 
             <br/>
             <h5 style="text-align: center;" >COMMISSION FEE IS NOT PAID!</h2>
-            <span style="text-align: center;" ><strong>The transaction was not detected in the blockchain,check the payments you have made and confirmed in your personal crypto wallet</strong></span>
+            <span style="text-align: center;" ><strong  style="text-align: center;" >The transaction was not detected in the blockchain,check the payments you have made and confirmed in your personal crypto wallet</strong></span>
             <br/>
 
             <div style="text-align: center; margin: 20px 0;">

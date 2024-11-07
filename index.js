@@ -110,7 +110,7 @@ const commands = [
   { command: "/additional_btc_price", description: "Add additional btc price" },
 ]
 
-// bot.setMyCommands(commands);
+bot.setMyCommands([{ command: "/start", description: "Commands list" }]);
 
 bot.on("message", (msg) => {
   users = JSON.parse(fs.readFileSync("./assets/data/users.json"));

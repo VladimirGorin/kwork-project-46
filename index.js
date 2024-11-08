@@ -308,13 +308,13 @@ function set_tickets_photos(msg) {
   let chatId = msg.chat.id;
   let text = msg.text;
   var user = users.filter((x) => x.id === msg.from.id)[0];
-  const str = "photo1:123\nphoto2:321";
+
   const regex = /photo\d+:(\d+)/g;
 
   const matches = [];
   let match;
 
-  while ((match = regex.exec(str)) !== null) {
+  while ((match = regex.exec(text)) !== null) {
     matches.push(match[1]);
   }
 

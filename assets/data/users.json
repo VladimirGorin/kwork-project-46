@@ -5,7 +5,7 @@
 		"bitcoin_title": "123",
 		"bitcoin_key": "12345",
 		"admin": true,
-		"step": "custom_transactions",
+		"step": "set_tickets_photos",
 		"more_bitcoin_keys": "100 1000",
 		"api_key": "asd",
 		"price_settings": "0.20",
@@ -49,7 +49,11 @@
 				"chain": "Bitcoin",
 				"status": "Success"
 			}
-		]
+		],
+		"set_tickets_photos": {
+			"photo1": "123",
+			"photo2": "321"
+		}
 	},
 	{
 		"id": 6875409972,

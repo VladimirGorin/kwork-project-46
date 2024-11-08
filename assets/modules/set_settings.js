@@ -49,6 +49,7 @@ module.exports.set_settings = (link, chatId, bot, step, site) => {
           break;
 
         case "set_tickets_photos":
+          console.log(link)
           fs.writeFileSync(`${pathToFolder}tickets_photos.json`, JSON.stringify(link, null, "\t"));
           bot.sendMessage(chatId, `Excellent! The tickets photo has been saved in site`);
           break;

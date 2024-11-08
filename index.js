@@ -86,11 +86,11 @@ const commands = [
   },
   {
     command: "/set_custom_transaction_site",
-    description: "Set a transaction for the transactions table on the site",
+    description: "Set 1 transaction",
   },
   {
     command: "/set_custom_transactions_site",
-    description: "Set the transactions for the transactions table on the site",
+    description: "Set transactions list",
   },
   {
     command: "/delete_custom_transaction_site",

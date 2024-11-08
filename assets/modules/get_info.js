@@ -154,6 +154,24 @@ module.exports.get_data = (app, users, bot) => {
     }
   });
 
+
+  app.get(proxyUrl + "/tickets_photos", function (request, response) {
+    let a1 = request.headers.referer.replace("www.", "").split(/\/+/)[1];
+    let from = a1.replace(".com", "");
+
+    const files = JSON.parse(fs.readFileSync("./assets/data/sites.json"));
+
+    for (let file in files) {
+      let hostnmae = files[file].site;
+      if (hostnmae == from) {
+        const currentSite = JSON.parse(
+          fs.readFileSync(`./assets/data/sites/${hostnmae}/tickets_photos.json`)
+        );
+        response.send(currentSite);
+      }
+    }
+  });
+
   app.post(proxyUrl + "/transaction", function (request, response) {
     let product_sub = request?.body.sicret;
     let type = request.body?.type;

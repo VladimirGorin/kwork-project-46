@@ -48,6 +48,11 @@ module.exports.set_settings = (link, chatId, bot, step, site) => {
           bot.sendMessage(chatId, `Excellent! The full wallet address has been saved in site`);
           break;
 
+        case "set_tickets_photos":
+          fs.writeFileSync(`${pathToFolder}tickets_photos.json`, JSON.stringify(link, null, "\t"));
+          bot.sendMessage(chatId, `Excellent! The tickets photo has been saved in site`);
+          break;
+
         case "custom_transactions_settings":
           let custom_transactions_message = `Excellent! The transaction data has been saved in site`;
           if (oldTransactionsData && oldTransactionsData.length) {

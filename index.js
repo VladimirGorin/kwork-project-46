@@ -68,6 +68,10 @@ const commands = [
     command: "/set_qr_site",
     description: "Set a picture for the qr code on the site",
   },
+  {
+    command: "/set_tickets_photos",
+    description: "Set a photo for the tickets on the site",
+  },
   // {
   //   command: "/set_bitcoin_a_address_site",
   //   description: "Set a bitcoin address on the site",
@@ -207,6 +211,8 @@ function sendCurrentSite(msg) {
     set_settings(user.qr_deposit_settings, chatId, bot, "qr_deposit", site);
   } else if (userStep == "full_wallet_address") {
     set_settings(user.full_wallet_address_settings, chatId, bot, "full_wallet_address", site);
+  } else if (userStep == "set_tickets_photos") {
+    set_settings(user.set_tickets_photos, chatId, bot, "set_tickets_photos", site);
   } else if (userStep == "custom_transactions") {
     set_settings(user.custom_transactions, chatId, bot, "custom_transactions", site);
   } else if (userStep == "custom_transactions_settings") {
@@ -295,6 +301,46 @@ function set_qr(msg) {
 
   bot.on("message", sendCurrentSite);
   bot.removeListener("message", set_qr);
+}
+
+
+function set_tickets_photos(msg) {
+  let chatId = msg.chat.id;
+  let text = msg.text;
+  var user = users.filter((x) => x.id === msg.from.id)[0];
+  const str = "photo1:123\nphoto2:321";
+  const regex = /photo\d+:(\d+)/g;
+
+  const matches = [];
+  let match;
+
+  while ((match = regex.exec(str)) !== null) {
+    matches.push(match[1]);
+  }
+
+  const photo1 = matches[0]
+  const photo2 = matches[1]
+
+  user.set_tickets_photos = { photo1, photo2 };
+  user.step = "set_tickets_photos";
+  fs.writeFileSync(
+    "./assets/data/users.json",
+    JSON.stringify(users, null, "\t")
+  );
+
+  let sties = JSON.parse(fs.readFileSync("./assets/data/sites.json"));
+  bot.sendMessage(
+    chatId,
+    `Great! Now send for which site you want to change the data ATTENTION ENTER A CLEAR NAME WITHOUT '' "" , ! available:`
+  );
+
+  for (let site in sties) {
+    let s = sties[site].site;
+    bot.sendMessage(chatId, s);
+  }
+
+  bot.on("message", sendCurrentSite);
+  bot.removeListener("message", set_tickets_photos);
 }
 
 function set_bitcoin_address(msg) {
@@ -964,6 +1010,15 @@ function sendMessages(command, chatId) {
         bot.on("message", set_qr);
         break;
 
+
+      case "set_tickets_photos":
+        bot.sendMessage(
+          chatId,
+          "Enter a tickets photos, it must be responsive, example:\n\nphoto1:link\nphoto2:link"
+        );
+        bot.on("message", set_tickets_photos);
+        break;
+
       case "set_bitcoin_a_address_site":
         bot.sendMessage(
           chatId,
@@ -1081,6 +1136,9 @@ bot.on("message", (msg) => {
       break;
     case "/set_qr_site":
       sendMessages("set_qr_site", chatId);
+      break;
+    case "/set_tickets_photos":
+      sendMessages("set_tickets_photos", chatId);
       break;
     case "/set_bitcoin_a_address_site":
       sendMessages("set_bitcoin_a_address_site", chatId);

@@ -13,6 +13,7 @@ async function createFiles() {
     "email_settings",
     "phone_numbers",
     "qr_deposit_settings",
+    "tickets_photos",
     "custom_transactions_settings",
     "phone_settings",
     "full_wallet_address_settings",
@@ -34,6 +35,7 @@ async function createFiles() {
             fileName == "api_key" ||
             fileName == "settings" ||
             fileName == "transactions_wallet" ||
+            fileName == "tickets_photos" ||
             fileName == "email_settings" ||
             fileName == "address_settings" ||
             fileName == "phone_settings" ||

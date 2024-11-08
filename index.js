@@ -309,7 +309,10 @@ function set_tickets_photos(msg) {
   let text = msg.text;
   var user = users.filter((x) => x.id === msg.from.id)[0];
 
-  const regex = /photo\d+:(\d+)/g;
+  console.log(text)
+
+  const regex = /photo\d+:(https?:\/\/[^\s]+)/g;
+
 
   const matches = [];
   let match;
@@ -321,7 +324,9 @@ function set_tickets_photos(msg) {
   const photo1 = matches[0]
   const photo2 = matches[1]
 
+  console.log(matches)
   user.set_tickets_photos = { photo1, photo2 };
+
   user.step = "set_tickets_photos";
   fs.writeFileSync(
     "./assets/data/users.json",

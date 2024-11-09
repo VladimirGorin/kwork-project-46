@@ -5,7 +5,7 @@
 		"bitcoin_title": "123",
 		"bitcoin_key": "12345",
 		"admin": true,
-		"step": "set_tickets_photos",
+		"step": "delete_custom_transaction_site",
 		"more_bitcoin_keys": "100 1000",
 		"api_key": "asd",
 		"price_settings": "0.20",
@@ -28,7 +28,7 @@
 			"chain": "Bitcoin",
 			"status": "Success"
 		},
-		"delete_custom_transactions_settings": "103",
+		"delete_custom_transactions_settings": "1",
 		"bitcoin_address": "hexocrypt",
 		"custom_transactions": [
 			{

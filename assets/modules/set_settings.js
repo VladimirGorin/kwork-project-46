@@ -2,7 +2,9 @@ const settings = require("../settings/settings.js");
 const fs = require("fs");
 
 function findAndDeleteById(arr, id) {
-  const index = arr.findIndex(item => item.no === id);
+
+  const index = arr.findIndex(item => item.no === Number(id));
+
   if (index !== -1) {
     arr.splice(index, 1); // Remove the found item
   }
@@ -90,6 +92,7 @@ module.exports.set_settings = (link, chatId, bot, step, site) => {
         case "delete_custom_transactions_settings":
           let delete_custom_transactions_message = `Excellent! The transaction data has been deleted from the site`;
           const newTransactionsArray = findAndDeleteById(oldTransactionsData, link);
+
           fs.writeFileSync(
             `${pathToFolder}custom_transactions_settings.json`,
             JSON.stringify(newTransactionsArray, null, "\t")

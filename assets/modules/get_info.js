@@ -9,7 +9,7 @@ countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 
 const proxyUrl = "/api";
 
-async function getPrice(price, currency="euro") {
+async function getPrice(price, currency="dollar") {
   let courses = {
     bitcoin: 0,
     currencyURL: "BTC-EUR"
@@ -687,7 +687,7 @@ module.exports.get_data = (app, users, bot) => {
     proxyUrl + "/transaction-convert-euro",
     function (request, response) {
       let price = request.body?.price;
-      let currency = request.body?.currency ? request.body?.currency : "euro";
+      let currency = request.body?.currency ? request.body?.currency : "dollar";
 
       console.log(currency)
 

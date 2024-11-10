@@ -908,6 +908,7 @@ function clear_keys(chatId) {
     bot.sendMessage(chatId, s);
   }
 
+  bot.removeListener("message", clear_keys);
   bot.on("message", sendCurrentSite);
 }
 

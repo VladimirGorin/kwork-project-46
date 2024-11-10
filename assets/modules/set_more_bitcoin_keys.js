@@ -1,19 +1,31 @@
 const fs = require('fs');
 
-module.exports = function set_more_bitcoin_keys (user, chatId, bot, site){
+
+function checkStartsWithZero(str) {
+    if (/^0\d/.test(str)) {
+        return true
+    }
+}
+
+module.exports = function set_more_bitcoin_keys(user, chatId, bot, site) {
     let pathToFolder = `./assets/data/sites/${site}/`
     bot.sendMessage(chatId, "Wait... In progress")
 
-    fs.access(`../data/sites/${site}/`, function(error){
+    fs.access(`../data/sites/${site}/`, function (error) {
         if (error) {
             let keys = JSON.parse(fs.readFileSync(`${pathToFolder}users-keys.json`));
             let numberOfKeys = user?.more_bitcoin_keys.split(" ")
             let privateKey = user?.bitcoin_key
             let index = numberOfKeys[0]
+
+            const isZeroOne = checkStartsWithZero(index)
+
+            index = index.replace("0", "")
+
             for (index; index < numberOfKeys[1]; index++) {
                 keys.push({
                     "bitcoin_key": privateKey,
-                    "bitcoin_title": `${index}`
+                    "bitcoin_title": isZeroOne ? `0${index}` : `${index}`
                 })
                 fs.writeFileSync(`${pathToFolder}users-keys.json`, JSON.stringify(keys, null, '\t'))
 

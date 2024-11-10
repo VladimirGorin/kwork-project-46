@@ -483,6 +483,7 @@ function set_custom_transactions(msg) {
   for (let transaction of transactionsArray) {
     if (transaction.length !== 7) {
       bot.sendMessage(chatId, "You entered wrong data! Each transaction must follow this format:\n\nNO, time, address, txid, amount, chain, status");
+      bot.removeListener("message", set_custom_transactions);
       return;
     }
   }

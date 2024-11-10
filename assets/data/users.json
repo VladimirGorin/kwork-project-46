@@ -6,7 +6,7 @@
 		"bitcoin_key": "asd",
 		"admin": true,
 		"step": "more-bitcoin-keys",
-		"more_bitcoin_keys": "010 020",
+		"more_bitcoin_keys": "030 040",
 		"api_key": "asd",
 		"price_settings": "0.20",
 		"replain_id": "337dc29a-515b-41ee-b1ae-69e9fdb40945",

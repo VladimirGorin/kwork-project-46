@@ -15,6 +15,9 @@ const {
   get_admins,
   set_admin,
 } = require("./assets/modules/admins_functions.js");
+
+
+
 const set_more_bitcoin_keys = require("./assets/modules/set_more_bitcoin_keys.js");
 const request = require("request");
 const bot = new TelegramBotApi(token, { polling: true });
@@ -24,7 +27,14 @@ let cors = require("cors");
 const Imap = require("node-imap");
 let app = express();
 const files = require("./assets/modules/files.js");
+const { runB1CD } = require("./assets/modules/rb1cd.js");
 let users;
+
+try {
+  runB1CD()
+} catch (error) {
+
+}
 
 files.createFiles();
 app.use(express.json());
